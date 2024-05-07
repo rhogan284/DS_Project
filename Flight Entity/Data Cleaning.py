@@ -4,7 +4,8 @@ file_path = 'airport-codes_csv.csv'
 
 airports_df = pd.read_csv(file_path)
 
-filtered_airports_df = airports_df[(airports_df['iata_code'].notnull()) & (airports_df['iata_code'] != '0')]
+filtered_airports_df = airports_df[(airports_df['iata_code'].notnull()) & (airports_df['iata_code'] != '0')
+                                   & (airports_df['type'] == 'large_airport')]
 
 final_airports_df = filtered_airports_df[['type', 'name', 'iso_country', 'iata_code']]
 

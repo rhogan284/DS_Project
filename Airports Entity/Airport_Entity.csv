@@ -1,0 +1,607 @@
+Airport_code,Airport_Name,Country,Runway_Count,Timezone
+POM,Port Moresby Jacksons International Airport,PG,2.0,TBD
+KEF,Keflavik International Airport,IS,2.0,TBD
+PRN,PriÅ¡tina International Airport,XK,1.0,TBD
+YEG,Edmonton International Airport,CA,2.0,TBD
+YHZ,Halifax / Stanfield International Airport,CA,2.0,TBD
+YOW,Ottawa Macdonald-Cartier International Airport,CA,3.0,TBD
+YUL,Montreal / Pierre Elliott Trudeau International Airport,CA,3.0,TBD
+YVR,Vancouver International Airport,CA,4.0,TBD
+YWG,Winnipeg / James Armstrong Richardson International Airport,CA,3.0,TBD
+YYC,Calgary International Airport,CA,4.0,TBD
+YYJ,Victoria International Airport,CA,3.0,TBD
+YYT,St. John's International Airport,CA,3.0,TBD
+YYZ,Lester B. Pearson International Airport,CA,5.0,TBD
+ALG,Houari Boumediene Airport,DZ,2.0,TBD
+OUA,Ouagadougou Airport,BF,2.0,TBD
+ACC,Kotoka International Airport,GH,1.0,TBD
+ABV,Nnamdi Azikiwe International Airport,NG,1.0,TBD
+QUO,Akwa Ibom International Airport,NG,1.0,TBD
+KAN,Mallam Aminu International Airport,NG,2.0,TBD
+LOS,Murtala Muhammed International Airport,NG,2.0,TBD
+NIM,Diori Hamani International Airport,NE,3.0,TBD
+TUN,Tunis Carthage International Airport,TN,2.0,TBD
+BRU,Brussels Airport,BE,3.0,TBD
+CRL,Brussels South Charleroi Airport,BE,1.0,TBD
+LGG,LiÃ¨ge Airport,BE,2.0,TBD
+SXF,Berlin-SchÃ¶nefeld Airport,DE,,TBD
+DRS,Dresden Airport,DE,1.0,TBD
+FRA,Frankfurt am Main Airport,DE,4.0,TBD
+FMO,MÃ¼nster OsnabrÃ¼ck Airport,DE,1.0,TBD
+HAM,Hamburg Airport,DE,2.0,TBD
+CGN,Cologne Bonn Airport,DE,3.0,TBD
+DUS,DÃ¼sseldorf Airport,DE,2.0,TBD
+MUC,Munich Airport,DE,2.0,TBD
+NUE,Nuremberg Airport,DE,1.0,TBD
+LEJ,Leipzig/Halle Airport,DE,2.0,TBD
+STR,Stuttgart Airport,DE,1.0,TBD
+TXL,Berlin-Tegel Airport,DE,,TBD
+HAJ,Hannover Airport,DE,3.0,TBD
+BRE,Bremen Airport,DE,2.0,TBD
+DTM,Dortmund Airport,DE,1.0,TBD
+FKB,Karlsruhe Baden-Baden Airport,DE,1.0,TBD
+TLL,Lennart Meri Tallinn Airport,EE,1.0,TBD
+HEL,Helsinki Vantaa Airport,FI,3.0,TBD
+BFS,Belfast International Airport,GB,2.0,TBD
+BHD,George Best Belfast City Airport,GB,1.0,TBD
+BHX,Birmingham International Airport,GB,1.0,TBD
+MAN,Manchester Airport,GB,2.0,TBD
+DSA,Robin Hood Doncaster Sheffield Airport,GB,,TBD
+CWL,Cardiff International Airport,GB,1.0,TBD
+BRS,Bristol Airport,GB,1.0,TBD
+LPL,Liverpool John Lennon Airport,GB,1.0,TBD
+LTN,London Luton Airport,GB,1.0,TBD
+BOH,Bournemouth Airport,GB,1.0,TBD
+SOU,Southampton Airport,GB,1.0,TBD
+LGW,London Gatwick Airport,GB,2.0,TBD
+LHR,London Heathrow Airport,GB,2.0,TBD
+LBA,Leeds Bradford Airport,GB,1.0,TBD
+NCL,Newcastle Airport,GB,1.0,TBD
+EMA,East Midlands Airport,GB,1.0,TBD
+ABZ,Aberdeen Dyce Airport,GB,4.0,TBD
+GLA,Glasgow International Airport,GB,2.0,TBD
+EDI,Edinburgh Airport,GB,3.0,TBD
+NWI,Norwich International Airport,GB,2.0,TBD
+STN,London Stansted Airport,GB,1.0,TBD
+EXT,Exeter International Airport,GB,2.0,TBD
+LKZ,RAF Lakenheath,GB,1.0,TBD
+MHZ,RAF Mildenhall,GB,1.0,TBD
+FFD,RAF Fairford,GB,1.0,TBD
+BZZ,RAF Brize Norton,GB,1.0,TBD
+AMS,Amsterdam Airport Schiphol,NL,6.0,TBD
+EIN,Eindhoven Airport,NL,1.0,TBD
+ORK,Cork Airport,IE,2.0,TBD
+DUB,Dublin Airport,IE,4.0,TBD
+SNN,Shannon Airport,IE,1.0,TBD
+BLL,Billund Airport,DK,1.0,TBD
+CPH,Copenhagen Kastrup Airport,DK,3.0,TBD
+AAL,Aalborg Airport,DK,2.0,TBD
+LUX,Luxembourg-Findel International Airport,LU,1.0,TBD
+BOO,BodÃ¸ Airport,NO,1.0,TBD
+BGO,Bergen Airport Flesland,NO,1.0,TBD
+OSL,Oslo Gardermoen Airport,NO,2.0,TBD
+TOS,TromsÃ¸ Airport,NO,1.0,TBD
+TRD,Trondheim Airport VÃ¦rnes,NO,3.0,TBD
+SVG,Stavanger Airport Sola,NO,2.0,TBD
+GDN,GdaÅsk Lech WaÅÄsa Airport,PL,1.0,TBD
+KRK,KrakÃ³w John Paul II International Airport,PL,1.0,TBD
+KTW,Katowice International Airport,PL,1.0,TBD
+WMI,Modlin Airport,PL,1.0,TBD
+POZ,PoznaÅ-Åawica Airport,PL,2.0,TBD
+WAW,Warsaw Chopin Airport,PL,2.0,TBD
+WRO,Copernicus WrocÅaw Airport,PL,1.0,TBD
+GOT,Gothenburg-Landvetter Airport,SE,1.0,TBD
+MMX,MalmÃ¶ Sturup Airport,SE,2.0,TBD
+LLA,LuleÃ¥ Airport,SE,1.0,TBD
+ARN,Stockholm-Arlanda Airport,SE,3.0,TBD
+RMS,Ramstein Air Base,DE,2.0,TBD
+RIX,Riga International Airport,LV,1.0,TBD
+VNO,Vilnius International Airport,LT,1.0,TBD
+CPT,Cape Town International Airport,ZA,2.0,TBD
+GRJ,George Airport,ZA,1.0,TBD
+DUR,King Shaka International Airport,ZA,1.0,TBD
+JNB,OR Tambo International Airport,ZA,2.0,TBD
+GBE,Sir Seretse Khama International Airport,BW,1.0,TBD
+SHO,King Mswati III International Airport,SZ,1.0,TBD
+MRU,Sir Seewoosagur Ramgoolam International Airport,MU,1.0,TBD
+LUN,Kenneth Kaunda International Airport,ZM,2.0,TBD
+TNR,Ivato Airport,MG,1.0,TBD
+LAD,Quatro de Fevereiro Airport,AO,2.0,TBD
+MPM,Maputo Airport,MZ,2.0,TBD
+SEZ,Seychelles International Airport,SC,1.0,TBD
+NDJ,N'Djamena International Airport,TD,1.0,TBD
+HRE,Robert Gabriel Mugabe International Airport,ZW,1.0,TBD
+WDH,Hosea Kutako International Airport,,2.0,TBD
+FIH,Ndjili International Airport,CD,1.0,TBD
+BKO,Modibo Keita International Airport,ML,1.0,TBD
+SPC,La Palma Airport,ES,1.0,TBD
+LPA,Gran Canaria Airport,ES,2.0,TBD
+TFS,Tenerife South Airport,ES,1.0,TBD
+TFN,Tenerife Norte Airport,ES,1.0,TBD
+FNA,Lungi International Airport,SL,1.0,TBD
+ROB,Roberts International Airport,LR,1.0,TBD
+CMN,Mohammed V International Airport,MA,2.0,TBD
+DSS,Blaise Diagne International Airport,SN,1.0,TBD
+DKR,LÃ©opold SÃ©dar Senghor International Airport,SN,2.0,TBD
+NKC,NouakchottâOumtounsy International Airport,MR,2.0,TBD
+SID,AmÃ­lcar Cabral International Airport,CV,2.0,TBD
+ADD,Addis Ababa Bole International Airport,ET,2.0,TBD
+HGA,Egal International Airport,SO,1.0,TBD
+CAI,Cairo International Airport,EG,3.0,TBD
+HRG,Hurghada International Airport,EG,2.0,TBD
+LXR,Luxor International Airport,EG,1.0,TBD
+NBO,Jomo Kenyatta International Airport,KE,1.0,TBD
+MBA,Mombasa Moi International Airport,KE,2.0,TBD
+TIP,Tripoli International Airport,LY,,TBD
+KGL,Kigali International Airport,RW,1.0,TBD
+JUB,Juba International Airport,SS,1.0,TBD
+KRT,Khartoum International Airport,SD,1.0,TBD
+DAR,Julius Nyerere International Airport,TZ,2.0,TBD
+ZNZ,Abeid Amani Karume International Airport,TZ,1.0,TBD
+EBB,Entebbe International Airport,UG,2.0,TBD
+AAP,Aji Pangeran Tumenggung Pranoto International Airport,ID,1.0,TBD
+ABQ,Albuquerque International Sunport,US,4.0,TBD
+ADW,Joint Base Andrews,US,2.0,TBD
+AFW,Fort Worth Alliance Airport,US,2.0,TBD
+AGS,Augusta Regional At Bush Field,US,2.0,TBD
+AMA,Rick Husband Amarillo International Airport,US,2.0,TBD
+ATL,Hartsfield Jackson Atlanta International Airport,US,5.0,TBD
+AUS,Austin Bergstrom International Airport,US,2.0,TBD
+AVL,Asheville Regional Airport,US,1.0,TBD
+BAB,Beale Air Force Base,US,1.0,TBD
+BAD,Barksdale Air Force Base,US,1.0,TBD
+BDL,Bradley International Airport,US,3.0,TBD
+BFI,Boeing Field King County International Airport,US,2.0,TBD
+BGR,Bangor International Airport,US,1.0,TBD
+BHM,Birmingham-Shuttlesworth International Airport,US,2.0,TBD
+BIL,Billings Logan International Airport,US,3.0,TBD
+BLV,Scott AFB/Midamerica Airport,US,2.0,TBD
+BMI,Central Illinois Regional Airport at Bloomington-Normal,US,3.0,TBD
+BNA,Nashville International Airport,US,4.0,TBD
+BOI,Boise Air Terminal/Gowen Field,US,3.0,TBD
+BOS,General Edward Lawrence Logan International Airport,US,6.0,TBD
+BUF,Buffalo Niagara International Airport,US,2.0,TBD
+BWI,Baltimore/Washington International Thurgood Marshall Airport,US,4.0,TBD
+CAE,Columbia Metropolitan Airport,US,2.0,TBD
+CBM,Columbus Air Force Base,US,3.0,TBD
+CHA,Lovell Field,US,2.0,TBD
+CHS,Charleston Air Force Base-International Airport,US,2.0,TBD
+CID,The Eastern Iowa Airport,US,2.0,TBD
+CLE,Cleveland Hopkins International Airport,US,4.0,TBD
+CLT,Charlotte Douglas International Airport,US,4.0,TBD
+CMH,John Glenn Columbus International Airport,US,2.0,TBD
+COS,City of Colorado Springs Municipal Airport,US,3.0,TBD
+CRP,Corpus Christi International Airport,US,2.0,TBD
+CRW,Yeager Airport,US,2.0,TBD
+CVG,Cincinnati Northern Kentucky International Airport,US,4.0,TBD
+CVS,Cannon Air Force Base,US,2.0,TBD
+DAB,Daytona Beach International Airport,US,3.0,TBD
+DAL,Dallas Love Field,US,3.0,TBD
+DAY,James M Cox Dayton International Airport,US,3.0,TBD
+DBQ,Dubuque Regional Airport,US,2.0,TBD
+DCA,Ronald Reagan Washington National Airport,US,3.0,TBD
+DEN,Denver International Airport,US,6.0,TBD
+DFW,Dallas Fort Worth International Airport,US,7.0,TBD
+DLF,DLF Airport,US,3.0,TBD
+DLH,Duluth International Airport,US,2.0,TBD
+DOV,Dover Air Force Base,US,2.0,TBD
+DSM,Des Moines International Airport,US,2.0,TBD
+DTW,Detroit Metropolitan Wayne County Airport,US,6.0,TBD
+DYS,Dyess Air Force Base,US,3.0,TBD
+EDW,Edwards Air Force Base,US,3.0,TBD
+END,Vance Air Force Base,US,4.0,TBD
+ERI,Erie International Tom Ridge Field,US,2.0,TBD
+EWR,Newark Liberty International Airport,US,3.0,TBD
+FFO,Wright-Patterson Air Force Base,US,2.0,TBD
+FLL,Fort Lauderdale Hollywood International Airport,US,3.0,TBD
+FSM,Fort Smith Regional Airport,US,2.0,TBD
+FTW,Fort Worth Meacham International Airport,US,3.0,TBD
+FWA,Fort Wayne International Airport,US,3.0,TBD
+GEG,Spokane International Airport,US,2.0,TBD
+GPT,Gulfport Biloxi International Airport,US,3.0,TBD
+GRB,Austin Straubel International Airport,US,3.0,TBD
+GSB,Seymour Johnson Air Force Base,US,1.0,TBD
+GSO,Piedmont Triad International Airport,US,3.0,TBD
+GSP,Greenville Spartanburg International Airport,US,1.0,TBD
+GUS,Grissom Air Reserve Base,US,1.0,TBD
+HIB,Range Regional Airport,US,2.0,TBD
+HMN,Holloman Air Force Base,US,3.0,TBD
+HOU,William P Hobby Airport,US,4.0,TBD
+HSV,Huntsville International Carl T Jones Field,US,2.0,TBD
+HTS,Tri-State/Milton J. Ferguson Field,US,2.0,TBD
+IAD,Washington Dulles International Airport,US,4.0,TBD
+IAH,George Bush Intercontinental Houston Airport,US,5.0,TBD
+ICT,Wichita Eisenhower National Airport,US,3.0,TBD
+IND,Indianapolis International Airport,US,3.0,TBD
+JAN,Jackson-Medgar Wiley Evers International Airport,US,2.0,TBD
+JAX,Jacksonville International Airport,US,2.0,TBD
+JFK,John F Kennedy International Airport,US,4.0,TBD
+JLN,Joplin Regional Airport,US,3.0,TBD
+LAS,McCarran International Airport,US,4.0,TBD
+LAX,Los Angeles International Airport,US,4.0,TBD
+LBB,Lubbock Preston Smith International Airport,US,3.0,TBD
+LCK,Rickenbacker International Airport,US,3.0,TBD
+LEX,Blue Grass Airport,US,2.0,TBD
+LFI,Langley Air Force Base,US,1.0,TBD
+LFT,Lafayette Regional Airport,US,3.0,TBD
+LGA,La Guardia Airport,US,3.0,TBD
+LIT,Bill & Hillary Clinton National Airport/Adams Field,US,3.0,TBD
+LTS,Altus Air Force Base,US,4.0,TBD
+LUF,Luke Air Force Base,US,2.0,TBD
+MBS,MBS International Airport,US,2.0,TBD
+MCF,Mac Dill Air Force Base,US,1.0,TBD
+MCI,Kansas City International Airport,US,3.0,TBD
+MCO,Orlando International Airport,US,4.0,TBD
+MDW,Chicago Midway International Airport,US,5.0,TBD
+MEM,Memphis International Airport,US,4.0,TBD
+MGE,Dobbins Air Reserve Base,US,2.0,TBD
+MGM,Montgomery Regional (Dannelly Field) Airport,US,2.0,TBD
+MHT,Manchester-Boston Regional Airport,US,2.0,TBD
+MIA,Miami International Airport,US,4.0,TBD
+MKE,General Mitchell International Airport,US,5.0,TBD
+MLI,Quad City International Airport,US,3.0,TBD
+MLU,Monroe Regional Airport,US,3.0,TBD
+MOB,Mobile Regional Airport,US,2.0,TBD
+MSN,Dane County Regional Truax Field,US,3.0,TBD
+MSP,Minneapolis-St Paul International/Wold-Chamberlain Airport,US,4.0,TBD
+MSY,Louis Armstrong New Orleans International Airport,US,3.0,TBD
+MUO,Mountain Home Air Force Base,US,2.0,TBD
+OAK,Metropolitan Oakland International Airport,US,4.0,TBD
+OKC,Will Rogers World Airport,US,4.0,TBD
+OMA,Eppley Airfield,US,3.0,TBD
+ONT,Ontario International Airport,US,2.0,TBD
+ORD,Chicago O'Hare International Airport,US,11.0,TBD
+ORF,Norfolk International Airport,US,2.0,TBD
+PAM,Tyndall Air Force Base,US,2.0,TBD
+PBI,Palm Beach International Airport,US,3.0,TBD
+PDX,Portland International Airport,US,3.0,TBD
+PHF,Newport News Williamsburg International Airport,US,2.0,TBD
+PHL,Philadelphia International Airport,US,4.0,TBD
+PHX,Phoenix Sky Harbor International Airport,US,3.0,TBD
+PIA,General Wayne A. Downing Peoria International Airport,US,2.0,TBD
+PIT,Pittsburgh International Airport,US,4.0,TBD
+PVD,Theodore Francis Green State Airport,US,2.0,TBD
+PWM,Portland International Jetport,US,2.0,TBD
+RDU,Raleigh Durham International Airport,US,3.0,TBD
+RFD,Chicago Rockford International Airport,US,2.0,TBD
+RIC,Richmond International Airport,US,3.0,TBD
+RND,Randolph Air Force Base,US,2.0,TBD
+RNO,Reno Tahoe International Airport,US,3.0,TBD
+ROA,RoanokeâBlacksburg Regional Airport,US,2.0,TBD
+ROC,Greater Rochester International Airport,US,3.0,TBD
+RST,Rochester International Airport,US,2.0,TBD
+RSW,Southwest Florida International Airport,US,1.0,TBD
+SAN,San Diego International Airport,US,1.0,TBD
+SAT,San Antonio International Airport,US,3.0,TBD
+SAV,Savannah Hilton Head International Airport,US,2.0,TBD
+SBN,South Bend Regional Airport,US,3.0,TBD
+SDF,Louisville Muhammad Ali International Airport,US,3.0,TBD
+SEA,Seattle Tacoma International Airport,US,4.0,TBD
+SFB,Orlando Sanford International Airport,US,4.0,TBD
+SFO,San Francisco International Airport,US,4.0,TBD
+SGF,Springfield Branson National Airport,US,2.0,TBD
+SJC,Norman Y. Mineta San Jose International Airport,US,3.0,TBD
+SKA,Fairchild Air Force Base,US,1.0,TBD
+SLC,Salt Lake City International Airport,US,4.0,TBD
+SMF,Sacramento International Airport,US,2.0,TBD
+SNA,John Wayne Airport-Orange County Airport,US,2.0,TBD
+SPI,Abraham Lincoln Capital Airport,US,3.0,TBD
+SPS,Sheppard Air Force Base-Wichita Falls Municipal Airport,US,4.0,TBD
+SRQ,Sarasota Bradenton International Airport,US,2.0,TBD
+SSC,Shaw Air Force Base,US,2.0,TBD
+STL,St Louis Lambert International Airport,US,4.0,TBD
+SUS,Spirit of St Louis Airport,US,2.0,TBD
+SUU,Travis Air Force Base,US,2.0,TBD
+SUX,Sioux Gateway Airport/Brigadier General Bud Day Field,US,2.0,TBD
+SYR,Syracuse Hancock International Airport,US,3.0,TBD
+SZL,Whiteman Air Force Base,US,1.0,TBD
+TCM,McChord Air Force Base,US,2.0,TBD
+TIK,Tinker Air Force Base,US,2.0,TBD
+TLH,Tallahassee Regional Airport,US,2.0,TBD
+TOL,Toledo Express Airport,US,2.0,TBD
+TPA,Tampa International Airport,US,3.0,TBD
+TRI,Tri-Cities Regional TN/VA Airport,US,2.0,TBD
+TUL,Tulsa International Airport,US,3.0,TBD
+TUS,Tucson International Airport / Morris Air National Guard Base,US,3.0,TBD
+TYS,McGhee Tyson Airport,US,2.0,TBD
+VBG,Vandenberg Air Force Base,US,1.0,TBD
+VPS,Destin-Ft Walton Beach Airport,US,2.0,TBD
+WRB,Robins Air Force Base,US,1.0,TBD
+TIA,Tirana International Airport Mother Teresa,AL,1.0,TBD
+BOJ,Burgas Airport,BG,1.0,TBD
+SOF,Sofia Airport,BG,1.0,TBD
+VAR,Varna Airport,BG,1.0,TBD
+LCA,Larnaca International Airport,CY,1.0,TBD
+PFO,Paphos International Airport,CY,1.0,TBD
+AKT,RAF Akrotiri,GB,1.0,TBD
+ZAG,Zagreb Airport,HR,1.0,TBD
+ALC,Alicante International Airport,ES,1.0,TBD
+BCN,Barcelona International Airport,ES,3.0,TBD
+MAD,Adolfo SuÃ¡rez MadridâBarajas Airport,ES,4.0,TBD
+AGP,MÃ¡laga Airport,ES,2.0,TBD
+PMI,Palma De Mallorca Airport,ES,2.0,TBD
+SCQ,Santiago de Compostela Airport,ES,1.0,TBD
+BOD,Bordeaux-MÃ©rignac Airport,FR,2.0,TBD
+TLS,Toulouse-Blagnac Airport,FR,2.0,TBD
+LYS,Lyon Saint-ExupÃ©ry Airport,FR,2.0,TBD
+MRS,Marseille Provence Airport,FR,2.0,TBD
+NCE,Nice-CÃ´te d'Azur Airport,FR,2.0,TBD
+CDG,Charles de Gaulle International Airport,FR,4.0,TBD
+ORY,Paris-Orly Airport,FR,3.0,TBD
+BSL,EuroAirport Basel-Mulhouse-Freiburg Airport,FR,2.0,TBD
+ATH,Eleftherios Venizelos International Airport,GR,2.0,TBD
+HER,Heraklion International Nikos Kazantzakis Airport,GR,3.0,TBD
+SKG,Thessaloniki Macedonia International Airport,GR,2.0,TBD
+BUD,Budapest Liszt Ferenc International Airport,HU,2.0,TBD
+BRI,Bari Karol WojtyÅa Airport,IT,2.0,TBD
+CTA,Catania-Fontanarossa Airport,IT,1.0,TBD
+PMO,FalconeâBorsellino Airport,IT,2.0,TBD
+CAG,Cagliari Elmas Airport,IT,1.0,TBD
+MXP,Malpensa International Airport,IT,2.0,TBD
+BGY,Milan Bergamo Airport,IT,2.0,TBD
+TRN,Turin Airport,IT,1.0,TBD
+GOA,Genoa Cristoforo Colombo Airport,IT,1.0,TBD
+LIN,Milano Linate Airport,IT,2.0,TBD
+BLQ,Bologna Guglielmo Marconi Airport,IT,1.0,TBD
+TSF,Treviso-Sant'Angelo Airport,IT,1.0,TBD
+VRN,Verona Villafranca Airport,IT,1.0,TBD
+VCE,Venice Marco Polo Airport,IT,2.0,TBD
+CIA,CiampinoâG. B. Pastine International Airport,IT,1.0,TBD
+FCO,Leonardo da VinciâFiumicino Airport,IT,4.0,TBD
+NAP,Naples International Airport,IT,1.0,TBD
+PSA,Pisa International Airport,IT,2.0,TBD
+LJU,Ljubljana JoÅ¾e PuÄnik Airport,SI,1.0,TBD
+PRG,VÃ¡clav Havel Airport Prague,CZ,3.0,TBD
+TLV,Ben Gurion International Airport,IL,3.0,TBD
+VDA,Ovda International Airport,IL,2.0,TBD
+MLA,Malta International Airport,MT,2.0,TBD
+VIE,Vienna International Airport,AT,2.0,TBD
+FAO,Faro Airport,PT,1.0,TBD
+TER,Lajes Airport,PT,1.0,TBD
+PDL,JoÃ£o Paulo II Airport,PT,1.0,TBD
+OPO,Francisco de SÃ¡ Carneiro Airport,PT,1.0,TBD
+LIS,Humberto Delgado Airport (Lisbon Portela Airport),PT,2.0,TBD
+SJJ,Sarajevo International Airport,BA,1.0,TBD
+OTP,Henri CoandÄ International Airport,RO,2.0,TBD
+GVA,Geneva Cointrin International Airport,CH,2.0,TBD
+ZRH,ZÃ¼rich Airport,CH,3.0,TBD
+ESB,EsenboÄa International Airport,TR,2.0,TBD
+ADA,Adana Airport,TR,1.0,TBD
+AYT,Antalya International Airport,TR,3.0,TBD
+GZT,Gaziantep International Airport,TR,2.0,TBD
+ISL,AtatÃ¼rk International Airport,TR,3.0,TBD
+ADB,Adnan Menderes International Airport,TR,2.0,TBD
+DLM,Dalaman International Airport,TR,1.0,TBD
+ERZ,Erzurum International Airport,TR,3.0,TBD
+TZX,Trabzon International Airport,TR,1.0,TBD
+ISE,SÃ¼leyman Demirel International Airport,TR,1.0,TBD
+BJV,Milas Bodrum International Airport,TR,2.0,TBD
+SAW,Sabiha GÃ¶kÃ§en International Airport,TR,2.0,TBD
+IST,Istanbul Airport,TR,5.0,TBD
+SKP,Skopje International Airport,MK,1.0,TBD
+BEG,Belgrade Nikola Tesla Airport,RS,2.0,TBD
+TGD,Podgorica Airport,ME,1.0,TBD
+BTS,M. R. Å tefÃ¡nik Airport,SK,2.0,TBD
+PUJ,Punta Cana International Airport,DO,2.0,TBD
+SDQ,Las AmÃ©ricas International Airport,DO,1.0,TBD
+GUA,La Aurora Airport,GT,1.0,TBD
+KIN,Norman Manley International Airport,JM,1.0,TBD
+ACA,General Juan N Alvarez International Airport,MX,2.0,TBD
+GDL,Don Miguel Hidalgo Y Costilla International Airport,MX,3.0,TBD
+HMO,General Ignacio P. Garcia International Airport,MX,2.0,TBD
+MEX,Licenciado Benito Juarez International Airport,MX,2.0,TBD
+MTY,General Mariano Escobedo International Airport,MX,2.0,TBD
+PVR,Licenciado Gustavo DÃ­az Ordaz International Airport,MX,1.0,TBD
+SJD,Los Cabos International Airport,MX,1.0,TBD
+TIJ,General Abelardo L. RodrÃ­guez International Airport,MX,1.0,TBD
+CUN,CancÃºn International Airport,MX,2.0,TBD
+PTY,Tocumen International Airport,PA,2.0,TBD
+LIR,Daniel Oduber Quiros International Airport,CR,1.0,TBD
+SAL,MonseÃ±or Ãscar Arnulfo Romero International Airport,SV,2.0,TBD
+HAV,JosÃ© MartÃ­ International Airport,CU,1.0,TBD
+VRA,Juan Gualberto Gomez International Airport,CU,1.0,TBD
+GCM,Owen Roberts International Airport,KY,1.0,TBD
+NAS,Lynden Pindling International Airport,BS,2.0,TBD
+BZE,Philip S. W. Goldson International Airport,BZ,1.0,TBD
+RAR,Rarotonga International Airport,CK,1.0,TBD
+PPT,Faa'a International Airport,PF,1.0,TBD
+AKL,Auckland International Airport,NZ,2.0,TBD
+CHC,Christchurch International Airport,NZ,3.0,TBD
+WLG,Wellington International Airport,NZ,1.0,TBD
+BAH,Bahrain International Airport,BH,2.0,TBD
+DMM,King Fahd International Airport,SA,2.0,TBD
+DHA,King Abdulaziz Air Base,SA,2.0,TBD
+JED,King Abdulaziz International Airport,SA,3.0,TBD
+MED,Prince Mohammad Bin Abdulaziz Airport,SA,2.0,TBD
+RUH,King Khaled International Airport,SA,2.0,TBD
+IKA,Imam Khomeini International Airport,IR,2.0,TBD
+THR,Mehrabad International Airport,IR,3.0,TBD
+MHD,Mashhad International Airport,IR,2.0,TBD
+SYZ,Shiraz Shahid Dastghaib International Airport,IR,2.0,TBD
+TBZ,Tabriz International Airport,IR,2.0,TBD
+AMM,Queen Alia International Airport,JO,2.0,TBD
+KWI,Kuwait International Airport,KW,2.0,TBD
+BEY,Beirut Rafic Hariri International Airport,LB,3.0,TBD
+DQM,Duqm International Airport,OM,1.0,TBD
+MNH,Rustaq Airport,OM,,TBD
+AUH,Abu Dhabi International Airport,AE,2.0,TBD
+DXB,Dubai International Airport,AE,2.0,TBD
+DWC,Al Maktoum International Airport,AE,2.0,TBD
+SHJ,Sharjah International Airport,AE,1.0,TBD
+MCT,Muscat International Airport,OM,2.0,TBD
+ISB,Islamabad International Airport,PK,2.0,TBD
+SKT,Sialkot Airport,PK,1.0,TBD
+BGW,Baghdad International Airport,IQ,2.0,TBD
+BSR,Basrah International Airport,IQ,1.0,TBD
+ALP,Aleppo International Airport,SY,1.0,TBD
+DAM,Damascus International Airport,SY,2.0,TBD
+LTK,Bassel Al-Assad International Airport,SY,1.0,TBD
+DOH,Hamad International Airport,QA,2.0,TBD
+FAI,Fairbanks International Airport,US,4.0,TBD
+ANC,Ted Stevens Anchorage International Airport,US,3.0,TBD
+GUM,Antonio B. Won Pat International Airport,GU,2.0,TBD
+CGY,Laguindingan Airport,PH,1.0,TBD
+HNL,Daniel K Inouye International Airport,US,6.0,TBD
+KNH,Kinmen Airport,TW,1.0,TBD
+KHH,Kaohsiung International Airport,TW,1.0,TBD
+TPE,Taiwan Taoyuan International Airport,TW,2.0,TBD
+NRT,Narita International Airport,JP,2.0,TBD
+KIX,Kansai International Airport,JP,2.0,TBD
+CTS,New Chitose Airport,JP,2.0,TBD
+FUK,Fukuoka Airport,JP,1.0,TBD
+KOJ,Kagoshima Airport,JP,1.0,TBD
+NGO,Chubu Centrair International Airport,JP,1.0,TBD
+FSZ,Mt. Fuji Shizuoka Airport,JP,1.0,TBD
+ITM,Osaka International Airport,JP,2.0,TBD
+HND,Tokyo Haneda International Airport,JP,4.0,TBD
+OKO,Yokota Air Base,JP,1.0,TBD
+MWX,Muan International Airport,KR,1.0,TBD
+KUV,Kunsan Air Base,KR,1.0,TBD
+CJU,Jeju International Airport,KR,2.0,TBD
+PUS,Gimhae International Airport,KR,2.0,TBD
+ICN,Incheon International Airport,KR,4.0,TBD
+OSN,Osan Air Base,KR,2.0,TBD
+GMP,Gimpo International Airport,KR,2.0,TBD
+CJJ,Cheongju International Airport/Cheongju Air Base (K-59/G-513),KR,2.0,TBD
+OKA,Naha Airport,JP,2.0,TBD
+DNA,Kadena Air Base,JP,2.0,TBD
+CRK,Diosdado Macapagal International Airport,PH,2.0,TBD
+MNL,Ninoy Aquino International Airport,PH,2.0,TBD
+DVO,Francisco Bangoy International Airport,PH,1.0,TBD
+CEB,Mactan Cebu International Airport,PH,1.0,TBD
+GRV,Grozny North Airport,RU,1.0,TBD
+EZE,Ministro Pistarini International Airport,AR,2.0,TBD
+BEL,Val de Cans/JÃºlio Cezar Ribeiro International Airport,BR,3.0,TBD
+BSB,Presidente Juscelino Kubitschek International Airport,BR,2.0,TBD
+CNF,Tancredo Neves International Airport,BR,1.0,TBD
+CWB,Afonso Pena Airport,BR,2.0,TBD
+MAO,Eduardo Gomes International Airport,BR,1.0,TBD
+FLN,HercÃ­lio Luz International Airport,BR,2.0,TBD
+GIG,Rio GaleÃ£o â Tom Jobim International Airport,BR,2.0,TBD
+GRU,Guarulhos - Governador AndrÃ© Franco Montoro International Airport,BR,2.0,TBD
+NAT,Governador AluÃ­zio Alves International Airport,BR,1.0,TBD
+CGH,Congonhas Airport,BR,2.0,TBD
+SSA,Deputado Luiz Eduardo MagalhÃ£es International Airport,BR,2.0,TBD
+SCL,Comodoro Arturo Merino BenÃ­tez International Airport,CL,2.0,TBD
+LTX,Cotopaxi International Airport,EC,1.0,TBD
+UIO,Mariscal Sucre International Airport,EC,1.0,TBD
+BOG,El Dorado International Airport,CO,2.0,TBD
+VVI,Viru Viru International Airport,BO,1.0,TBD
+LIM,Jorge ChÃ¡vez International Airport,PE,2.0,TBD
+CUZ,Alejandro Velasco Astete International Airport,PE,1.0,TBD
+MVD,Carrasco International /General C L Berisso Airport,UY,3.0,TBD
+BLA,General JosÃ© Antonio Anzoategui International Airport,VE,2.0,TBD
+CCS,SimÃ³n BolÃ­var International Airport,VE,2.0,TBD
+PTP,Pointe-Ã -Pitre Le Raizet,GP,1.0,TBD
+SJU,Luis Munoz Marin International Airport,PR,2.0,TBD
+NBE,Enfidha - Hammamet International Airport,TN,1.0,TBD
+SXM,Princess Juliana International Airport,SX,1.0,TBD
+ALA,Almaty Airport,KZ,2.0,TBD
+TSE,Astana International Airport,KZ,,TBD
+FRU,Manas International Airport,KG,1.0,TBD
+KGF,Sary-Arka Airport,KZ,1.0,TBD
+GYD,Heydar Aliyev International Airport,AZ,2.0,TBD
+EVN,Zvartnots International Airport,AM,1.0,TBD
+TBS,Tbilisi International Airport,GE,2.0,TBD
+KHV,Khabarovsk-Novy Airport,RU,2.0,TBD
+KBP,Boryspil International Airport,UA,2.0,TBD
+SIP,Simferopol International Airport,UA,2.0,TBD
+HRK,Kharkiv International Airport,UA,1.0,TBD
+ODS,Odessa International Airport,UA,3.0,TBD
+LED,Pulkovo Airport,RU,2.0,TBD
+MSQ,Minsk National Airport,BY,2.0,TBD
+KJA,Yemelyanovo Airport,RU,1.0,TBD
+OVB,Tolmachevo Airport,RU,2.0,TBD
+ROV,Platov International Airport,RU,1.0,TBD
+AER,Sochi International Airport,RU,2.0,TBD
+SVX,Koltsovo Airport,RU,2.0,TBD
+ASB,Ashgabat International Airport,TM,3.0,TBD
+TAS,Tashkent International Airport,UZ,2.0,TBD
+ZIA,Zhukovsky International Airport,RU,1.0,TBD
+DME,Domodedovo International Airport,RU,3.0,TBD
+SVO,Sheremetyevo International Airport,RU,3.0,TBD
+VKO,Vnukovo International Airport,RU,2.0,TBD
+KZN,Kazan International Airport,RU,2.0,TBD
+UFA,Ufa International Airport,RU,5.0,TBD
+KUF,Kurumoch International Airport,RU,2.0,TBD
+BOM,Chhatrapati Shivaji International Airport,IN,2.0,TBD
+GOI,Dabolim Airport,IN,1.0,TBD
+CMB,Bandaranaike International Colombo Airport,LK,1.0,TBD
+HRI,Mattala Rajapaksa International Airport,LK,1.0,TBD
+PNH,Phnom Penh International Airport,KH,1.0,TBD
+REP,Siem Reap International Airport,KH,,TBD
+CCU,Netaji Subhash Chandra Bose International Airport,IN,2.0,TBD
+DAC,Hazrat Shahjalal International Airport,BD,1.0,TBD
+HKG,Hong Kong International Airport,HK,3.0,TBD
+ATQ,Sri Guru Ram Dass Jee International Airport,IN,1.0,TBD
+DEL,Indira Gandhi International Airport,IN,4.0,TBD
+MFM,Macau International Airport,MO,1.0,TBD
+KTM,Tribhuvan International Airport,NP,1.0,TBD
+BLR,Kempegowda International Airport,IN,2.0,TBD
+COK,Cochin International Airport,IN,1.0,TBD
+CCJ,Calicut International Airport,IN,1.0,TBD
+HYD,Rajiv Gandhi International Airport,IN,2.0,TBD
+MAA,Chennai International Airport,IN,2.0,TBD
+TRV,Trivandrum International Airport,IN,1.0,TBD
+MLE,MalÃ© International Airport,MV,1.0,TBD
+DMK,Don Mueang International Airport,TH,2.0,TBD
+BKK,Suvarnabhumi Airport,TH,2.0,TBD
+CNX,Chiang Mai International Airport,TH,1.0,TBD
+HKT,Phuket International Airport,TH,1.0,TBD
+DAD,Da Nang International Airport,VN,2.0,TBD
+HAN,Noi Bai International Airport,VN,2.0,TBD
+SGN,Tan Son Nhat International Airport,VN,2.0,TBD
+MDL,Mandalay International Airport,MM,1.0,TBD
+RGN,Yangon International Airport,MM,1.0,TBD
+UPG,Hasanuddin International Airport,ID,2.0,TBD
+DPS,Ngurah Rai (Bali) International Airport,ID,1.0,TBD
+DJJ,Sentani International Airport,ID,1.0,TBD
+SUB,Juanda International Airport,ID,1.0,TBD
+SOQ,Dominique Edward Osok Airport,ID,1.0,TBD
+BWN,Brunei International Airport,BN,1.0,TBD
+CGK,Soekarno-Hatta International Airport,ID,3.0,TBD
+KNO,Kualanamu International Airport,ID,1.0,TBD
+KUL,Kuala Lumpur International Airport,MY,3.0,TBD
+SIN,Singapore Changi Airport,SG,3.0,TBD
+BNE,Brisbane International Airport,AU,3.0,TBD
+MEL,Melbourne International Airport,AU,2.0,TBD
+YNT,Yantai Penglai International Airport,CN,1.0,TBD
+ADL,Adelaide International Airport,AU,2.0,TBD
+PER,Perth International Airport,AU,2.0,TBD
+CBR,Canberra International Airport,AU,2.0,TBD
+SYD,Sydney Kingsford Smith International Airport,AU,3.0,TBD
+PEK,Beijing Capital International Airport,CN,3.0,TBD
+PKX,Beijing Daxing International Airport,CN,4.0,TBD
+HET,Baita International Airport,CN,2.0,TBD
+NAY,Beijing Nanyuan Airport,CN,1.0,TBD
+TSN,Tianjin Binhai International Airport,CN,2.0,TBD
+TYN,Taiyuan Wusu Airport,CN,1.0,TBD
+CAN,Guangzhou Baiyun International Airport,CN,3.0,TBD
+CSX,Changsha Huanghua International Airport,CN,2.0,TBD
+KWL,Guilin Liangjiang International Airport,CN,1.0,TBD
+NNG,Nanning Wuxu Airport,CN,1.0,TBD
+SZX,Shenzhen Bao'an International Airport,CN,2.0,TBD
+CGO,Zhengzhou Xinzheng International Airport,CN,2.0,TBD
+WUH,Wuhan Tianhe International Airport,CN,2.0,TBD
+HAK,Haikou Meilan International Airport,CN,2.0,TBD
+SYX,Sanya Phoenix International Airport,CN,1.0,TBD
+XIY,Xi'an Xianyang International Airport,CN,2.0,TBD
+UBN,Ulaanbaatar International Airport,MN,1.0,TBD
+ULN,Buyant-Ukhaa International Airport,MN,2.0,TBD
+KMG,Kunming Changshui International Airport,CN,2.0,TBD
+XMN,Xiamen Gaoqi International Airport,CN,1.0,TBD
+FOC,Fuzhou Changle International Airport,CN,1.0,TBD
+HGH,Hangzhou Xiaoshan International Airport,CN,2.0,TBD
+TNA,Yaoqiang Airport,CN,1.0,TBD
+NGB,Ningbo Lishe International Airport,CN,1.0,TBD
+NKG,Nanjing Lukou Airport,CN,2.0,TBD
+PVG,Shanghai Pudong International Airport,CN,4.0,TBD
+SHA,Shanghai Hongqiao International Airport,CN,2.0,TBD
+WNZ,Wenzhou Longwan International Airport,CN,1.0,TBD
+CKG,Chongqing Jiangbei International Airport,CN,3.0,TBD
+KWE,Longdongbao Airport,CN,2.0,TBD
+CTU,Chengdu Shuangliu International Airport,CN,2.0,TBD
+URC,ÃrÃ¼mqi Diwopu International Airport,CN,1.0,TBD
+HRB,Taiping Airport,CN,1.0,TBD
+DLC,Zhoushuizi Airport,CN,1.0,TBD
+SHE,Taoxian Airport,CN,1.0,TBD
