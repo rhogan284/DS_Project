@@ -1,8 +1,12 @@
 import argparse
 import json
 import os
+import logging
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions, GoogleCloudOptions
+
+# Configure logging at the INFO level
+logging.getLogger().setLevel(logging.INFO)
 
 # Set the environment variable for the Google application credentials
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data-systems-assignment-a8059c08d52e.json"
@@ -30,6 +34,7 @@ def run(input_subscription, output_table):
             p
             | "Read from Pub/Sub" >> beam.io.ReadFromPubSub(subscription=input_subscription)
             | "Decode JSON messages" >> beam.Map(lambda x: json.loads(x.decode('utf-8')))
+            | "Log Data" >> beam.Map(lambda element: logging.info(f"Processing: {element}") or element)
         )
 
         # Write to BigQuery
@@ -42,4 +47,5 @@ def run(input_subscription, output_table):
         )
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     run(known_args.input_subscription, known_args.output_table)

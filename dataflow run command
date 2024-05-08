@@ -6,3 +6,4 @@ python export_to_bq.py ^
   --temp_location "gs://airline-database-bucket/temp"^
   --region "europe-west4"^
   --experiments=enable_data_sampling
+  --workerLogLevelOverrides='{\"root\":\"INFO\"}'
