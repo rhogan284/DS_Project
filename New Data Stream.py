@@ -192,4 +192,5 @@ def generate_and_publish_flight_data():
             publish_message(row)
         time.sleep(1)
 
+
 generate_and_publish_flight_data()
