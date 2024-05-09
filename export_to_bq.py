@@ -7,7 +7,7 @@ from apache_beam.options.pipeline_options import PipelineOptions, GoogleCloudOpt
 
 logging.getLogger().setLevel(logging.INFO)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data-systems-assignment-a8059c08d52e.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json"
 
 SCHEMA = ('Flight_ID:STRING, Flight_Status:STRING, Aircraft_ID:STRING, Model_ID:STRING, Destination_Airport:STRING, '
           'Departure_Airport:STRING, Departure_Time:TIMESTAMP, Arrival_Time:TIMESTAMP, Passport_No:STRING, '

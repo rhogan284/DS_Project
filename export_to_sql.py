@@ -11,7 +11,7 @@ from apache_beam.io.jdbc import WriteToJdbc
 
 logging.getLogger().setLevel(logging.INFO)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data-systems-assignment-a8059c08d52e.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json"
 
 SCHEMA = ('Flight_ID:STRING, Flight_Status:STRING, Aircraft_ID:STRING, Model_ID:STRING, Destination_Airport:STRING, '
           'Departure_Airport:STRING, Departure_Time:TIMESTAMP, Arrival_Time:TIMESTAMP, Passport_No:STRING, '
@@ -33,16 +33,7 @@ pipeline_options.view_as(GoogleCloudOptions).project = known_args.project_id
 
 def run(input_subscription, output_table):
 
-    import argparse
-    import json
-    import os
-    import logging
     import apache_beam as beam
-    from apache_beam.options.pipeline_options import PipelineOptions, GoogleCloudOptions
-    from apache_beam import Pipeline
-    from apache_beam import Row
-    from apache_beam.io import ReadFromPubSub, WriteToBigQuery, BigQueryDisposition
-    from apache_beam.io.jdbc import WriteToJdbc
 
     with beam.Pipeline(options=pipeline_options) as p:
         messages = (
@@ -69,8 +60,8 @@ def run(input_subscription, output_table):
                 flight_status=str(element['Flight_Status']),
                 aircraft_id=str(element['Aircraft_ID']),
                 model_id=str(element['Model_ID']),
-                destination_airport=str(element['Destination_Airport']),
-                departure_airport=str(element['Departure_Airport']),
+                destination_airport=str(element['Destination_airport']),
+                departure_airport=str(element['Departure_airport']),
                 departure_time=str(element['Departure_Time']),
                 arrival_time=str(element['Arrival_Time']),
                 passport_no=str(element['Passport_No']),
@@ -79,7 +70,7 @@ def run(input_subscription, output_table):
 
         messages | "Convert to JDBC Row" >> beam.Map(to_jdbc_row) | "Write to Cloud SQL" >> WriteToJdbc(
             table_name=TABLE_NAME,
-            driver_class_name='com.mysql.jdbc.Driver',
+            driver_class_name='com.mysql.cj.jdbc.Driver',
             jdbc_url=JDBC_URL,
             username=USERNAME,
             password=PASSWORD

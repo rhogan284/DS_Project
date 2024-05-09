@@ -12,7 +12,7 @@ from pyspark.sql.types import StructType, StructField, StringType, IntegerType, 
 from pyspark.sql.functions import col, from_json, to_json, struct, current_timestamp
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data-systems-assignment-a8059c08d52e.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json"
 project_id = "data-systems-assignment"
 topic_id = "Airline-Database-PUBSUB"
 
@@ -124,13 +124,13 @@ def assign_passengers(seats_qty):
     return people_data_df.orderBy(F.rand()).limit(seats_qty).collect()
 
 
-airports_csv = 'Airports Entity/Airport_Entity.csv'
+airports_csv = 'Entity Folders/Airports Entity/Airport_Entity.csv'
 airport_codes_df = pd.read_csv(airports_csv)
 airports = airport_codes_df['Airport_code'].dropna().unique().tolist()
 primary_airport = 'SYD'
 
-model_csv = 'Airplane Model Entity/Airplane_Model_Entity.csv'
-people_csv = 'People Entity/People_Entity.csv'
+model_csv = 'Entity Folders/Airplane Model Entity/Airplane_Model_Entity.csv'
+people_csv = 'Entity Folders/People Entity/People_Entity.csv'
 model_df = spark.read.csv(model_csv, header=True, inferSchema=True)
 people_data_df = spark.read.csv(people_csv, header=True, inferSchema=True)
 
