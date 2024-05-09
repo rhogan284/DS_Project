@@ -190,7 +190,7 @@ def generate_and_publish_flight_data():
         flight_data_df = generate_flight_data()
         for row in flight_data_df.toJSON().collect():
             publish_message(row)
-        time.sleep(1)
+        time.sleep(100)
 
 
 generate_and_publish_flight_data()
