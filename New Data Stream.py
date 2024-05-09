@@ -172,7 +172,7 @@ def generate_flight_data():
         Row(
             Flight_ID=flight_id,
             Flight_Status=flight_status,
-            aircraft_ID=aircraft_id,
+            Aircraft_ID=aircraft_id,
             Model_ID=model_assigned['Model'],
             Destination_airport=destination_airport,
             Departure_airport=departure_airport,
