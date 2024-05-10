@@ -1,0 +1,9 @@
+python new_sql_export2.py \
+  --runner=DataflowRunner \
+  --project=data-systems-assignment \
+  --region=europe-west4 \
+  --input_subscription=projects/data-systems-assignment/subscriptions/Airline-Database-PUBSUB-sub \
+  --jdbc_url=jdbc:mysql://34.134.67.180:3306/airline-database \
+  --db_table=Flight \
+  --temp_location=gs://airline-database-bucket/temp \
+  --staging_location=gs://airline-database-bucket/staging

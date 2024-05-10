@@ -17,7 +17,7 @@ SCHEMA = ('Flight_ID:STRING, Flight_Status:STRING, Aircraft_ID:STRING, Model_ID:
           'Departure_Airport:STRING, Departure_Time:TIMESTAMP, Arrival_Time:TIMESTAMP, Passport_No:STRING, '
           'Seat_No:INTEGER')
 
-JDBC_URL = 'jdbc:mysql://34.134.67.180:3306/airlines'
+JDBC_URL = 'jdbc:mysql://34.134.67.180:3306/airline-database'
 USERNAME = 'airline-database'
 PASSWORD = 'pXlZb?L%;[avj++x'
 TABLE_NAME = 'Flight'
