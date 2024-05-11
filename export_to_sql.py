@@ -18,7 +18,7 @@ SCHEMA = '''
 Flight_ID:STRING, Flight_Status:STRING, Aircraft_ID:STRING,
 Destination_Airport:STRING, Departure_Airport:STRING,
 Departure_Time:TIMESTAMP, Arrival_Time:TIMESTAMP,
-Passport_No:STRING, Model_ID:STRING, Seat_No:INTEGER
+Passport_No:STRING, Model_ID:STRING, Seat_No:INTEGER, Citizenship:STRING
 '''
 
 def to_jdbc_row(element):
@@ -32,6 +32,7 @@ def to_jdbc_row(element):
         arrival_time=str(element['Arrival_Time']),
         passport_no=str(element['Passport_No']),
         model_id=str(element['Model_ID']),
+        citizenship=str(element['Citizenship']),
         seat_no=int(element['Seat_No'])
     )
 

@@ -175,6 +175,7 @@ def generate_flight_data():
             Departure_Time=departure_time,
             Arrival_Time=arrival_time,
             Passport_No=passenger['Passport_No'],
+            Citizenship=passenger['Citizenship'],
             Seat_No=index+1
         ) for index, passenger in enumerate(passengers)
     ]
