@@ -41,8 +41,7 @@ def to_ticket_row(element):
         Flight_ID=str(element['Flight_ID']),
     )
 
-
-def run_pipeline(input_subscription, output_table, flight_table, ticket_table):
+def run_pipeline(input_subscription, flight_table, ticket_table):
     import apache_beam as beam
     pipeline_options = PipelineOptions(pipeline_args, streaming=True, streaming_engine_option='DATA_FLOW_SERVICE')
     pipeline_options.view_as(GoogleCloudOptions).project = known_args.project_id
@@ -55,44 +54,36 @@ def run_pipeline(input_subscription, output_table, flight_table, ticket_table):
                 | "Decode JSON messages" >> beam.Map(lambda x: json.loads(x.decode('utf-8')))
         )
 
-        messages | "Write to BigQuery" >> WriteToBigQuery(
-            output_table,
-            schema=SCHEMA,
-            create_disposition=BigQueryDisposition.CREATE_IF_NEEDED,
-            write_disposition=BigQueryDisposition.WRITE_APPEND,
-            additional_bq_parameters={'timePartitioning': {'type': 'DAY'}}
-        )
+    windowed_messages = messages | "Apply Windowing" >> beam.WindowInto(FixedWindows(30))
 
-        windowed_messages = messages | "Apply Windowing" >> beam.WindowInto(FixedWindows(30))
+    flight_data = (
+            windowed_messages
+            | "Extract Flight Data" >> beam.Map(to_flight_row)
+            | "Deduplicate Flight Data" >> beam.Distinct()
+    )
 
-        flight_data = (
-                windowed_messages
-                | "Extract Flight Data" >> beam.Map(to_flight_row)
-                | "Deduplicate Flight Data" >> beam.Distinct()
-        )
+    flight_data | "Log Flight Data" >> beam.Map(lambda x: logging.info(f"Writing Flight Data: {x}") or x)
 
-        flight_data | "Log Flight Data" >> beam.Map(lambda x: logging.info(f"Writing Flight Data: {x}") or x)
+    flight_data | "Write Flight Data to Cloud SQL" >> WriteToJdbc(
+        table_name=flight_table,
+        driver_class_name='com.mysql.cj.jdbc.Driver',
+        jdbc_url=config['jdbc_url'],
+        username=config['db_username'],
+        password=config['db_password'],
+    )
 
-        flight_data | "Write Flight Data to Cloud SQL" >> WriteToJdbc(
-            table_name=flight_table,
-            driver_class_name='com.mysql.cj.jdbc.Driver',
-            jdbc_url=config['jdbc_url'],
-            username=config['db_username'],
-            password=config['db_password'],
-        )
+    ticket_data = (windowed_messages | "Extract Ticket Data" >> beam.Map(to_ticket_row))
+    ticket_data_delayed = ticket_data | "Apply Ticket Windowing" >> beam.WindowInto(FixedWindows(70))
 
-        ticket_data = (windowed_messages | "Extract Ticket Data" >> beam.Map(to_ticket_row))
-        ticket_data_delayed = ticket_data | "Apply Ticket Windowing" >> beam.WindowInto(FixedWindows(70))
+    ticket_data_delayed | "Log Ticket Data" >> beam.Map(lambda x: logging.info(f"Writing Ticket Data: {x}") or x)
 
-        ticket_data_delayed | "Log Ticket Data" >> beam.Map(lambda x: logging.info(f"Writing Ticket Data: {x}") or x)
-
-        ticket_data_delayed | "Write Ticket Data to Cloud SQL" >> WriteToJdbc(
-            table_name=ticket_table,
-            driver_class_name='com.mysql.cj.jdbc.Driver',
-            jdbc_url=config['jdbc_url'],
-            username=config['db_username'],
-            password=config['db_password']
-        )
+    ticket_data_delayed | "Write Ticket Data to Cloud SQL" >> WriteToJdbc(
+        table_name=ticket_table,
+        driver_class_name='com.mysql.cj.jdbc.Driver',
+        jdbc_url=config['jdbc_url'],
+        username=config['db_username'],
+        password=config['db_password']
+    )
 
 
 if __name__ == "__main__":
@@ -103,10 +94,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--project_id", help="Your GCP project ID", required=True)
     parser.add_argument("--input_subscription", help="Input PubSub subscription", required=True)
-    parser.add_argument("--output_table", help="Output BigQuery table", required=True)
     parser.add_argument("--flight_table", help="MySQL table for flight details", required=True)
     parser.add_argument("--ticket_table", help="MySQL table for ticket details", required=True)
     known_args, pipeline_args = parser.parse_known_args()
 
-    run_pipeline(known_args.input_subscription, known_args.output_table, known_args.flight_table,
-                 known_args.ticket_table)
+    run_pipeline(known_args.input_subscription, known_args.flight_table, known_args.ticket_table)

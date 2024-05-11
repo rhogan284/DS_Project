@@ -3,5 +3,6 @@
     "jdbc_url": "jdbc:mysql://34.134.67.180:3306/airlines",
     "db_username": "airline-database",
     "db_password": "pXlZb?L%;[avj++x",
-    "table_name": "Flight"
+    "table_name_1": "Flight",
+    "table_name_2": "Ticket"
 }
