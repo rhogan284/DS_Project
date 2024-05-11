@@ -1,16 +1,12 @@
 import os
 import time
 import random
-import json
 import pandas as pd
 from datetime import datetime, timedelta
 from faker import Faker
 from google.cloud import pubsub_v1
 
 from pyspark.sql import SparkSession, Row, functions as F
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType, TimestampType
-from pyspark.sql.functions import col, from_json, to_json, struct, current_timestamp
-
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json"
 project_id = "data-systems-assignment"
