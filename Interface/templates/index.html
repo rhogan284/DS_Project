@@ -13,7 +13,12 @@
    
 </head>
 <body>
-    
+
+    <div>
+        <h1>Flight Information</h1>
+        <button>Refresh</button>
+    </div>
+    <br>
     <table> 
         <tr>
             <th>Flight ID</th>
@@ -24,11 +29,11 @@
             <th>Flight Status</th>
         </tr>
 
-        <!-- {% for row in data %} -->
+        {% for row in data %}
         <tr>
             <td>{{ row.Flight_ID }}</td>
-            <td>{{ row.Departure_airport }}</td>
-            <td>{{ row.Destination_airport }}</td>
+            <td>{{ row.Departure_Airport }}</td>
+            <td>{{ row.Destination_Airport }}</td>
             <td>{{ row.Departure_Time }}</td>
             <td>{{ row.Arrival_Time }}</td>
             <td>{{ row.Flight_Status }}</td>
@@ -36,7 +41,7 @@
 
         </tr>
 
-        <!-- {% endfor %} -->
+        {% endfor %}
 
     </table>
    
