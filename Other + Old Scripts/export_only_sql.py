@@ -8,7 +8,7 @@ from apache_beam.io import ReadFromPubSub, WriteToBigQuery, BigQueryDisposition
 from apache_beam.io.jdbc import WriteToJdbc
 from apache_beam.transforms.window import FixedWindows
 
-with open('config.json', 'r') as config_file:
+with open('../config.json', 'r') as config_file:
     config = json.load(config_file)
 
 logging.getLogger().setLevel(logging.DEBUG)
