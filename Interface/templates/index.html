@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Airport Management System</title>
+   
+</head>
+<body>
+    
+    <table> 
+        <tr>
+            <th>Flight ID</th>
+            <th>Departure</th>
+            <th>Destination</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Flight Status</th>
+        </tr>
+
+        <!-- {% for row in data %} -->
+        <tr>
+            <td>{{ row.Flight_ID }}</td>
+            <td>{{ row.Departure_airport }}</td>
+            <td>{{ row.Destination_airport }}</td>
+            <td>{{ row.Departure_Time }}</td>
+            <td>{{ row.Arrival_Time }}</td>
+            <td>{{ row.Flight_Status }}</td>
+
+
+        </tr>
+
+        <!-- {% endfor %} -->
+
+    </table>
+   
+    
+</body>
+</html>
+
+{% endblock %}
+
