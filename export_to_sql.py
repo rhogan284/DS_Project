@@ -29,8 +29,7 @@ def to_flight_row(element):
         Destination_Airport=str(element['Destination_airport']),
         Departure_Airport=str(element['Departure_airport']),
         Departure_Time=str(element['Departure_Time']),
-        Arrival_Time=str(element['Arrival_Time']),
-        Model_ID=str(element['Model_ID'])
+        Arrival_Time=str(element['Arrival_Time'])
     )
 
 def to_ticket_row(element):
@@ -82,7 +81,7 @@ def run_pipeline(input_subscription, output_table, flight_table, ticket_table):
         )
 
         ticket_data = (windowed_messages | "Extract Ticket Data" >> beam.Map(to_ticket_row))
-        ticket_data_delayed = ticket_data | "Apply Ticket Windowing" >> beam.WindowInto(FixedWindows(70))
+        ticket_data_delayed = ticket_data | "Apply Ticket Windowing" >> beam.WindowInto(FixedWindows(170))
 
         ticket_data_delayed | "Log Ticket Data" >> beam.Map(lambda x: logging.info(f"Writing Ticket Data: {x}") or x)
 
