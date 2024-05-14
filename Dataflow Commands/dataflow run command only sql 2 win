@@ -1,9 +1,6 @@
-python export_only_sql.py ^
+python export_only_sql_2.py ^
   --project_id "data-systems-assignment" ^
   --input_subscription "projects/data-systems-assignment/subscriptions/Airline-Database-PUBSUB-sub" ^
-  --output_table "data-systems-assignment:Airport_Dataset.Flights_Table_Test" ^
-  --flight_table "Flight" ^
-  --ticket_table "Ticket" ^
   --runner DataflowRunner ^
   --temp_location "gs://airline-database-bucket/temp" ^
   --region "europe-west4" ^
