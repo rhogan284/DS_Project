@@ -1,0 +1,8 @@
+python export_sql+bq.py \
+  --project_id "data-systems-assignment" \
+  --input_subscription "projects/data-systems-assignment/subscriptions/Airline-Database-PUBSUB-sub" \
+  --runner DataflowRunner \
+  --temp_location "gs://airline-database-bucket/temp" \
+  --region "europe-west4" \
+  --save_main_session \
+  --experiments=enable_data_sampling

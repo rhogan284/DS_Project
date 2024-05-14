@@ -1,4 +1,4 @@
-python export_only_sql_2.py ^
+python export_sql.py ^
   --project_id "data-systems-assignment" ^
   --input_subscription "projects/data-systems-assignment/subscriptions/Airline-Database-PUBSUB-sub" ^
   --runner DataflowRunner ^

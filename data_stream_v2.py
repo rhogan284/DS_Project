@@ -98,7 +98,7 @@ def generate_flight_data():
 
     json_message(flight_details)
 
-    time.sleep(5)
+    time.sleep(10)
 
     for index, passenger in enumerate(passengers):
         passenger_details = {
@@ -112,7 +112,7 @@ def generate_flight_data():
 def generate_and_publish_flight_data():
     while True:
         generate_flight_data()
-        time.sleep(20)
+        time.sleep(60)
 
 
 generate_and_publish_flight_data()
