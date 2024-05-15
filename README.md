@@ -11,9 +11,6 @@ This repository contains a university project that defines a data generator and 
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Files](#files)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Structure
 
