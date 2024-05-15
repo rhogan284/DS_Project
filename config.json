@@ -1,8 +1,0 @@
-{
-    "google_credentials": "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json",
-    "jdbc_url": "jdbc:mysql://34.134.67.180:3306/airlines",
-    "db_username": "airline-database",
-    "db_password": "pXlZb?L%;[avj++x",
-    "flight_table_name": "Flight",
-    "ticket_table_name": "Ticket"
-}
