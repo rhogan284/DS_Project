@@ -8,7 +8,7 @@ body {
 
 .container{
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -29,7 +29,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px; 
+    font-size: 20px;
     align-items: center;
     justify-content: center;
 
@@ -151,4 +151,23 @@ input[type="submit"]:hover {
 
 button[type="submit"] {
   min-width: 100px; /* Set minimum width for the submit button */
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+.graph-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.graph-container h2 {
+    margin-bottom: 10px;
+}
+.graph {
+    width: 50%;
+    height: auto;
 }

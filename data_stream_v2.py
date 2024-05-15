@@ -92,9 +92,12 @@ def generate_flight_data():
     elif flight_status == 'En Route':
         departure_time = time_now - timedelta(hours=random.randint(1, 12))
         arrival_time = time_now + timedelta(minutes=random.randint(1, 30))
+    elif flight_status == 'Delayed':
+        departure_time = time_now + timedelta(hours=random.randint(1, 12))
+        arrival_time = departure_time + timedelta(hours=random.randint(1, 12))
     else:
-        departure_time = time_now
-        arrival_time = time_now + timedelta(hours=random.randint(1, 12))
+        departure_time = time_now + timedelta(minutes=random.randint(1, 30))
+        arrival_time = departure_time + timedelta(hours=random.randint(1, 12))
 
     passengers = people_data_df.orderBy(F.rand()).limit(seats_qty).collect()
 
@@ -110,7 +113,7 @@ def generate_flight_data():
 
     json_message(flight_details)
 
-    time.sleep(10)
+    time.sleep(5)
 
     for index, passenger in enumerate(passengers):
         passenger_details = {
@@ -124,7 +127,7 @@ def generate_flight_data():
 def generate_and_publish_flight_data():
     while True:
         generate_flight_data()
-        time.sleep(60)
+        time.sleep(20)
 
 
 generate_and_publish_flight_data()
