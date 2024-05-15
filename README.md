@@ -76,7 +76,3 @@ For running the ETL pipeline targeting both SQL and BigQuery:
 ```sh
 python export_sql+bq.py
 ```
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
