@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import mysql.connector
 import json
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import io
+import base64
 
 # Load configuration from the config file
 config_path = "../config.json"
@@ -92,6 +97,39 @@ def get_passenger_list(flight_id):
         return jsonify(success=True, passengers=passenger_list)
     else:
         return jsonify(success=False)
+
+@app.route('/stats')
+def stats():
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    query = f"""
+    SELECT Flight_Status, COUNT(*) as count
+    FROM {config['flight_table_name']}
+    GROUP BY Flight_Status
+    """
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    # Create a DataFrame from the fetched data
+    df = pd.DataFrame(data, columns=['Flight_Status', 'Count'])
+
+    # Plot the data
+    fig, ax = plt.subplots()
+    sns.barplot(x='Flight_Status', y='Count', data=df, ax=ax)
+    plt.title('Flight Status Distribution')
+
+    # Save the plot to a bytes buffer
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
+    buf.close()
+
+    return render_template('stats.html', image_base64=image_base64)
 
 
 if __name__ == '__main__':

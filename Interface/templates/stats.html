@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Airport Management System - Stats</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <img src="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}" height='50px'>
+            <h1>FLIGHT STATISTICS</h1>
+        </div>
+    </div>
+    <br>
+    <div class="graph-container">
+        <img src="data:image/png;base64, {{ image_base64 }}" alt="Flight Status Distribution" class="graph">
+    </div>
+</body>
+</html>
+
+{% endblock %}
