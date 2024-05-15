@@ -9,7 +9,7 @@ import json
 
 from pyspark.sql import SparkSession, Row, functions as F
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-a8059c08d52e.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Other + Old Scripts/data-systems-assignment-3022a4c0d274.json"
 project_id = "data-systems-assignment"
 topic_id = "Airline-Database-PUBSUB"
 
