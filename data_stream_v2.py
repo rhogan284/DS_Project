@@ -81,8 +81,20 @@ def generate_flight_data():
             departure_airport = random.choice(non_primary_airports)
             destination_airport = primary_airport
 
-    departure_time = datetime.now()
-    arrival_time = departure_time + timedelta(hours=random.randint(1, 12))
+    time_now = datetime.now()
+
+    if flight_status == 'Boarding':
+        departure_time = time_now + timedelta(minutes=random.randint(1, 30))
+        arrival_time = departure_time + timedelta(hours=random.randint(1, 12))
+    elif flight_status == 'Landed':
+        departure_time = time_now - timedelta(hours=random.randint(1, 12))
+        arrival_time = time_now
+    elif flight_status == 'En Route':
+        departure_time = time_now - timedelta(hours=random.randint(1, 12))
+        arrival_time = time_now + timedelta(minutes=random.randint(1, 30))
+    else:
+        departure_time = time_now
+        arrival_time = time_now + timedelta(hours=random.randint(1, 12))
 
     passengers = people_data_df.orderBy(F.rand()).limit(seats_qty).collect()
 
