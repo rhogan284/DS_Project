@@ -1,25 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Airport Management System</title>
-   
 </head>
 <body>
-
     <div>
         <h1>Flight Information</h1>
         <button>Refresh</button>
     </div>
     <br>
-    <table> 
+    <table>
         <tr>
             <th>Flight ID</th>
             <th>Departure</th>
@@ -28,26 +24,18 @@
             <th>Arrival Time</th>
             <th>Flight Status</th>
         </tr>
-
         {% for row in data %}
         <tr>
-            <td>{{ row.Flight_ID }}</td>
-            <td>{{ row.Departure_Airport }}</td>
-            <td>{{ row.Destination_Airport }}</td>
-            <td>{{ row.Departure_Time }}</td>
-            <td>{{ row.Arrival_Time }}</td>
-            <td>{{ row.Flight_Status }}</td>
-
-
+            <td>{{ row[0] }}</td> <!-- Flight_ID -->
+            <td>{{ row[3] }}</td> <!-- Departure_Airport -->
+            <td>{{ row[2] }}</td> <!-- Destination_Airport -->
+            <td>{{ row[4] }}</td> <!-- Departure_Time -->
+            <td>{{ row[5] }}</td> <!-- Arrival_Time -->
+            <td>{{ row[1] }}</td> <!-- Flight_Status -->
         </tr>
-
         {% endfor %}
-
     </table>
-   
-    
 </body>
 </html>
 
 {% endblock %}
-

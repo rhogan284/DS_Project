@@ -1,7 +1,7 @@
 argparse==1.4.0
 apache-beam[gcp]==2.56.0
 pandas==2.2.2
-faker==25.2.0
+Faker==25.2.0
 google-cloud-pubsub==2.21.1
 pyspark==3.5.1
 blinker==1.8.2
@@ -11,3 +11,4 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
 Werkzeug==3.0.3
+mysql-connector-python==8.4.0
