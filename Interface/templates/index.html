@@ -12,29 +12,57 @@
 <body>
     <div>
         <h1>Flight Information</h1>
-        <button>Refresh</button>
+        <button onclick="refreshData()">Refresh</button>
     </div>
     <br>
-    <table>
-        <tr>
-            <th>Flight ID</th>
-            <th>Departure</th>
-            <th>Destination</th>
-            <th>Departure Time</th>
-            <th>Arrival Time</th>
-            <th>Flight Status</th>
-        </tr>
-        {% for row in data %}
-        <tr>
-            <td>{{ row[0] }}</td> <!-- Flight_ID -->
-            <td>{{ row[3] }}</td> <!-- Departure_Airport -->
-            <td>{{ row[2] }}</td> <!-- Destination_Airport -->
-            <td>{{ row[4] }}</td> <!-- Departure_Time -->
-            <td>{{ row[5] }}</td> <!-- Arrival_Time -->
-            <td>{{ row[1] }}</td> <!-- Flight_Status -->
-        </tr>
-        {% endfor %}
+    <table id="flightTable">
+        <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>Departure</th>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Flight Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td> <!-- Flight_ID -->
+                <td>{{ row[3] }}</td> <!-- Departure_Airport -->
+                <td>{{ row[2] }}</td> <!-- Destination_Airport -->
+                <td>{{ row[4] }}</td> <!-- Departure_Time -->
+                <td>{{ row[5] }}</td> <!-- Arrival_Time -->
+                <td>{{ row[1] }}</td> <!-- Flight_Status -->
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
+
+    <script>
+        function refreshData() {
+            fetch('/refresh')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.querySelector('#flightTable tbody');
+                    tbody.innerHTML = '';
+                    data.forEach(row => {
+                        const newRow = document.createElement('tr');
+                        newRow.innerHTML = `
+                            <td>${row[0]}</td>
+                            <td>${row[3]}</td>
+                            <td>${row[2]}</td>
+                            <td>${row[4]}</td>
+                            <td>${row[5]}</td>
+                            <td>${row[1]}</td>
+                        `;
+                        tbody.appendChild(newRow);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    </script>
 </body>
 </html>
 
