@@ -104,6 +104,27 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        users = load_users()
+
+        # Check if the username already exists
+        if any(user['username'] == username for user in users):
+            msg = 'Username already exists!'
+        else:
+            # Add the new user
+            users.append({'username': username, 'password': password})
+            with open('users.json', 'w') as f:
+                json.dump(users, f)
+            msg = 'You have successfully registered!'
+            return redirect(url_for('login'))
+
+    return render_template('register.html', msg=msg)
+
 
 @app.route('/checkin')
 def checkin():
