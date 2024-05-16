@@ -7,10 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Flight Check-In</title>
+    <script>
+        function refreshData() {
+            document.getElementById('flightForm').reset();
+            document.getElementById('passengerList').innerHTML = '';
+        }
+
+        function insertQuery(template) {
+            document.querySelector('textarea[name="query"]').value = template;
+        }
+    </script>
 </head>
 <body>
+    <div class="container">
+        <div class="title">
+            <img src="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}" height="50px">
+            <h1>FLIGHT CHECK-IN</h1>
+        </div>
+        <button onclick="refreshData()" style="float:right; margin-right:20px;">Reset</button>
+    </div>
+    <br>
     <div>
-        <h1>Flight Check-In</h1>
         <form id="flightForm">
             <label for="flightID">Enter Flight ID:</label>
             <input type="text" id="flightID" name="flightID" required>
