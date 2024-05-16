@@ -52,7 +52,7 @@ def refresh():
     cursor = conn.cursor()
 
     query = f"""
-    SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
+    SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time, Aircraft_ID
     FROM {config['flight_table_name']}
     """
     cursor.execute(query)
@@ -86,7 +86,7 @@ def home():
     cursor = conn.cursor()
 
     query = f"""
-        SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
+        SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time,  Aircraft_ID
         FROM {config['flight_table_name']}
         """
     cursor.execute(query)
@@ -96,6 +96,20 @@ def home():
     conn.close()
 
     return render_template('index.html', username=session['username'], data=data)
+
+@app.route('/aircraft/<aircraft_id>')
+def get_aircraft_details(aircraft_id):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor(dictionary=True)
+    query = "SELECT * FROM Aircraft WHERE Aircraft_ID = %s"
+    cursor.execute(query, (aircraft_id,))
+    aircraft = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    if aircraft:
+        return jsonify(success=True, **aircraft)
+    else:
+        return jsonify(success=False)
 
 
 @app.route('/logout')
@@ -134,30 +148,35 @@ def checkin():
     return render_template('checkin.html')
 
 
-@app.route('/checkin/<flight_id>', methods=['GET'])
-def get_passenger_list(flight_id):
-    if 'loggedin' not in session:
-        return redirect(url_for('login'))
-
+@app.route('/checkin/<flight_id>')
+def checkin_flight(flight_id):
     conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-
+    cursor = conn.cursor(dictionary=True)
     query = f"""
-    SELECT Passport_No, Citizenship, Seat_No
-    FROM {config['ticket_table_name']}
-    WHERE Flight_ID = %s
-    """
+        SELECT Passport_No, Citizenship, Seat_No
+        FROM {config['ticket_table_name']}
+        WHERE Flight_ID = %s
+        """
     cursor.execute(query, (flight_id,))
     passengers = cursor.fetchall()
-
     cursor.close()
     conn.close()
-
     if passengers:
-        passenger_list = [
-            {"passportNumber": p[0], "citizenship": p[1], "seatNumber": p[2]}
-            for p in passengers]
-        return jsonify(success=True, passengers=passenger_list)
+        return jsonify(success=True, passengers=passengers)
+    else:
+        return jsonify(success=False)
+
+@app.route('/passenger/<passport_number>')
+def passenger_details(passport_number):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor(dictionary=True)
+    query = "SELECT First_Name, Last_Name, DOB, Citizenship FROM People WHERE Passport_No = %s"
+    cursor.execute(query, (passport_number,))
+    passenger = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    if passenger:
+        return jsonify(success=True, **passenger)
     else:
         return jsonify(success=False)
 

@@ -7,14 +7,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Flight Check-In</title>
+    <style>
+        /* Add styles for the modal */
+        #passengerDetailsModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        #passengerDetailsModalContent {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
     <script>
         function refreshData() {
             document.getElementById('flightForm').reset();
             document.getElementById('passengerList').innerHTML = '';
         }
 
-        function insertQuery(template) {
-            document.querySelector('textarea[name="query"]').value = template;
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        function showPassengerDetails(passportNumber) {
+            fetch(`/passenger/${passportNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('firstName').innerText = data.First_Name;
+                        document.getElementById('lastName').innerText = data.Last_Name;
+                        document.getElementById('dob').innerText = formatDate(data.DOB);
+                        document.getElementById('citizenship').innerText = data.Citizenship;
+                        document.getElementById('passengerDetailsModal').style.display = 'block';
+                    } else {
+                        alert('Passenger details not found.');
+                    }
+                })
+                .catch(error => console.error('Error fetching passenger details:', error));
+        }
+
+        function closeModal() {
+            document.getElementById('passengerDetailsModal').style.display = 'none';
         }
     </script>
 </head>
@@ -50,6 +110,17 @@
         </div>
     </div>
 
+    <div id="passengerDetailsModal">
+        <div id="passengerDetailsModalContent">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Passenger Details</h2>
+            <p><strong>First Name:</strong> <span id="firstName"></span></p>
+            <p><strong>Last Name:</strong> <span id="lastName"></span></p>
+            <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+            <p><strong>Citizenship:</strong> <span id="citizenship"></span></p>
+        </div>
+    </div>
+
     <script>
         document.getElementById('flightForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -63,9 +134,9 @@
                         data.passengers.forEach(passenger => {
                             const row = document.createElement('tr');
                             row.innerHTML = `
-                                <td>${passenger.passportNumber}</td>
-                                <td>${passenger.citizenship}</td>
-                                <td>${passenger.seatNumber}</td>
+                                <td><a href="#" onclick="showPassengerDetails('${passenger.Passport_No}')">${passenger.Passport_No}</a></td>
+                                <td>${passenger.Citizenship}</td>
+                                <td>${passenger.Seat_No}</td>
                             `;
                             tbody.appendChild(row);
                         });
