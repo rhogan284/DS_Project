@@ -36,13 +36,18 @@ def authenticate(username, password):
             return True
     return False
 
-@app.route('/index')
+@app.route('/')
 def index():
-    return render_template('index.html')
+    if 'loggedin' in session:
+        return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
 @app.route('/refresh')
 def refresh():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 
@@ -58,8 +63,7 @@ def refresh():
 
     return jsonify(data)
 
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
@@ -73,25 +77,26 @@ def login():
             msg = 'Incorrect username/password!'
     return render_template('login.html', msg=msg)
 
-
 @app.route('/home')
 def home():
-    if 'loggedin' in session:
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor()
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
 
-        query = f"""
-            SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
-            FROM {config['flight_table_name']}
-            """
-        cursor.execute(query)
-        data = cursor.fetchall()
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
 
-        cursor.close()
-        conn.close()
+    query = f"""
+        SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
+        FROM {config['flight_table_name']}
+        """
+    cursor.execute(query)
+    data = cursor.fetchall()
 
-        return render_template('index.html', username=session['username'], data=data)
-    return redirect(url_for('login'))
+    cursor.close()
+    conn.close()
+
+    return render_template('index.html', username=session['username'], data=data)
+
 
 @app.route('/logout')
 def logout():
@@ -102,11 +107,17 @@ def logout():
 
 @app.route('/checkin')
 def checkin():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     return render_template('checkin.html')
 
 
 @app.route('/checkin/<flight_id>', methods=['GET'])
 def get_passenger_list(flight_id):
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 
@@ -131,6 +142,9 @@ def get_passenger_list(flight_id):
 
 @app.route('/stats')
 def stats():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 
