@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +11,11 @@
 <body>
     <div class="container">
         <div class="title">
-        <img src="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}" height = '50px'>
-        <h1>FLIGHT INFORMATION</h1>
+            <img src="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}" height="50px">
+            <h1>FLIGHT INFORMATION</h1>
+            <p>Welcome, {{ username }}! <a href="{{ url_for('logout') }}">Logout</a></p>
         </div>
-        <button onclick="refreshData()" style="float:right; margin-right:20px;">Refresh</button> 
+        <button onclick="refreshData()" style="float:right; margin-right:20px;">Refresh</button>
     </div>
     <br>
     <table id="flightTable">
@@ -32,17 +32,16 @@
         <tbody>
             {% for row in data %}
             <tr>
-                <td>{{ row[0] }}</td> <!-- Flight_ID -->
-                <td>{{ row[3] }}</td> <!-- Departure_Airport -->
-                <td>{{ row[2] }}</td> <!-- Destination_Airport -->
-                <td>{{ row[4] }}</td> <!-- Departure_Time -->
-                <td>{{ row[5] }}</td> <!-- Arrival_Time -->
-                <td>{{ row[1] }}</td> <!-- Flight_Status -->
+                <td>{{ row[0] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[1] }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
     <script>
         function refreshData() {
             fetch('/refresh')
@@ -68,5 +67,4 @@
     </script>
 </body>
 </html>
-
 {% endblock %}

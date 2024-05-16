@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +9,18 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="form-container"> 
-        <form action='/user_home' method="post"> 
+    <div class="form-container">
+        <form action='/' method="post">
             <label for="username">User Name:</label>
             <input type="text" id="username" name="username" required><br><br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Submit">
         </form>
+        {% if msg %}
+            <p>{{ msg }}</p>
+        {% endif %}
     </div>
-
-
 </body>
 </html>
-
-
 {% endblock %}
