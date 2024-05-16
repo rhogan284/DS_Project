@@ -275,5 +275,29 @@ def stats():
                            image_base64_4=image_base64_4)
 
 
+# Route to display the query form and results
+@app.route('/query', methods=['GET', 'POST'])
+def query():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
+    query_result = None
+    field_names = None
+    if request.method == 'POST':
+        query_text = request.form['query']
+        try:
+            connection = mysql.connector.connect(**db_config)
+            cursor = connection.cursor()
+            cursor.execute(query_text)
+            query_result = cursor.fetchall()
+            field_names = [i[0] for i in cursor.description]
+            cursor.close()
+            connection.close()
+        except mysql.connector.Error as err:
+            query_result = f"Error: {err}"
+
+    return render_template('query.html', query_result=query_result, field_names=field_names)
+
+
 if __name__ == '__main__':
     app.run(port=8000, debug=True)
