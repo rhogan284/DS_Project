@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import mysql.connector
 import json
 import pandas as pd
@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import io
 import base64
+import os
 
 # Load configuration from the config file
 config_path = "../config.json"
@@ -20,28 +21,33 @@ db_config = {
 }
 
 app = Flask(__name__)
+app.secret_key = 'b14f32e4f9b61e2d4f5e8c43bb2d1a92'
 
+def load_users():
+    if os.path.exists('users.json'):
+        with open('users.json', 'r') as f:
+            return json.load(f)
+    return []
+
+def authenticate(username, password):
+    users = load_users()
+    for user in users:
+        if user['username'] == username and user['password'] == password:
+            return True
+    return False
 
 @app.route('/')
 def index():
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-
-    query = f"""
-    SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
-    FROM {config['flight_table_name']}
-    """
-    cursor.execute(query)
-    data = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return render_template('index.html', data=data)
+    if 'loggedin' in session:
+        return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
 @app.route('/refresh')
 def refresh():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 
@@ -57,25 +63,82 @@ def refresh():
 
     return jsonify(data)
 
-
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        if authenticate(username, password):
+            session['loggedin'] = True
+            session['username'] = username
+            return redirect(url_for('home'))
+        else:
+            msg = 'Incorrect username/password!'
+    return render_template('login.html', msg=msg)
+
+@app.route('/home')
+def home():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    query = f"""
+        SELECT DISTINCT Flight_ID, Flight_Status, Destination_Airport, Departure_Airport, Departure_Time, Arrival_Time
+        FROM {config['flight_table_name']}
+        """
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return render_template('index.html', username=session['username'], data=data)
 
 
-@app.route('/user_home', methods=['POST'])
-def user_home():
-    username = request.form['username']
-    return render_template('home.html', username=username)
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        users = load_users()
+
+        # Check if the username already exists
+        if any(user['username'] == username for user in users):
+            msg = 'Username already exists!'
+        else:
+            # Add the new user
+            users.append({'username': username, 'password': password})
+            with open('users.json', 'w') as f:
+                json.dump(users, f)
+            msg = 'You have successfully registered!'
+            return redirect(url_for('login'))
+
+    return render_template('register.html', msg=msg)
 
 
 @app.route('/checkin')
 def checkin():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     return render_template('checkin.html')
 
 
 @app.route('/checkin/<flight_id>', methods=['GET'])
 def get_passenger_list(flight_id):
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 
@@ -100,6 +163,9 @@ def get_passenger_list(flight_id):
 
 @app.route('/stats')
 def stats():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
 

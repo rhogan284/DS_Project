@@ -3,13 +3,18 @@
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('checkin') }}">Check-In</a></li>
         <li><a href="{{ url_for('stats') }}">Stats</a></li>
-        <li style="float:right"><a href="{{ url_for('login') }}">Login</a></li>
+        {% if 'loggedin' in session %}
+            <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
+            <li style="float:right"><a>Welcome, {{ session['username'] }}</a></li>
+        {% else %}
+            <li style="float:right"><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
     </ul>
-    </div>
+</div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    {% block content %}
-    {% endblock %}
+{% block content %}
+{% endblock %}
