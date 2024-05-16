@@ -38,11 +38,24 @@
             background-color: #333;
             color: #fff;
         }
+        .query-buttons {
+            margin-bottom: 10px;
+        }
+        .query-buttons button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
     </style>
     <script>
         function refreshQuery() {
             document.getElementById('queryForm').reset();
             document.getElementById('queryResults').innerHTML = '';
+        }
+
+        function insertQuery(template) {
+            document.querySelector('textarea[name="query"]').value = template;
         }
     </script>
 </head>
@@ -52,16 +65,21 @@
             <img src="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}" height="50px">
             <h1>Enter Your Query</h1>
         </div>
-        <button onclick="refreshQuery()" style="float:right; margin-right:20px;">Refresh</button>
+        <button onclick="refreshQuery()" style="float:right; margin-right:20px;">Clear Query</button>
     </div>
     <div class="query-container">
+        <div class="query-buttons">
+            <button onclick="insertQuery('SELECT * FROM table_name WHERE condition;')">View Table</button>
+            <button onclick="insertQuery('INSERT INTO table_name (column1, column2) VALUES (value1, value2);')">Insert Data</button>
+            <button onclick="insertQuery('DELETE FROM table_name WHERE condition;')">Delete Data</button>
+        </div>
         <form id="queryForm" method="post">
             <textarea name="query" rows="4" cols="50" placeholder="Enter your SQL query here..."></textarea><br>
             <input type="submit" value="Submit">
         </form>
         {% if query_result %}
         <div id="queryResults">
-            <h2 style="text-align: center">Query Results</h2>
+            <h2>Query Results</h2>
             {% if query_result is string %}
             <p>{{ query_result }}</p>
             {% else %}
