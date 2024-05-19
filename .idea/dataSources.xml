@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Airport Database" uuid="4e172158-33ff-447c-86e2-221bf4c4ae95">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://34.134.67.180:3306/airlines</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="Airport Data Warehouse" uuid="021d352d-866e-4d93-8509-3b09b4492142">
+      <driver-ref>bigquery</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.simba.googlebigquery.jdbc42.Driver</jdbc-driver>
+      <jdbc-url>jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;DefaultDataset=Airport_Dataset</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="ProjectId" value="data-systems-assignment" />
+        <property name="OAuthServiceAcctEmail" value="258050167516-compute@developer.gserviceaccount.com" />
+        <property name="OAuthPvtKeyPath" value="C:\Users\rhino\PycharmProjects\DS_Project\Other + Old Scripts\data-systems-assignment-a8059c08d52e.json" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
