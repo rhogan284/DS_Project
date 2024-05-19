@@ -2,7 +2,8 @@
     <ul> 
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('checkin') }}">Check-In</a></li>
-        <li><a href="{{ url_for('stats') }}">Stats</a></li>
+        <li><a href="{{ url_for('query') }}">Query Database</a></li>
+        <li><a href="{{ url_for('stats') }}">Airport Statistics</a></li>
         {% if 'loggedin' in session %}
             <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
             <li style="float:right"><a>Welcome, {{ session['username'] }}</a></li>

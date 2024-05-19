@@ -127,7 +127,7 @@ def generate_flight_data():
 def generate_and_publish_flight_data():
     while True:
         generate_flight_data()
-        time.sleep(20)
+        time.sleep(random.randint(10, 30))
 
 
 generate_and_publish_flight_data()

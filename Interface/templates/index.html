@@ -7,6 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Airport Management System</title>
+    <link rel="icon" href="{{ url_for('static', filename='0846fabe1181b39f8edff657a1ec9a5e-plane-departure-icon-sign.png') }}">
+    <style>
+        /* Add styles for the modal */
+        #aircraftDetailsModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        #aircraftDetailsModalContent {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,6 +60,7 @@
         <thead>
             <tr>
                 <th>Flight ID</th>
+                <th>Aircraft ID</th>
                 <th>Departure</th>
                 <th>Destination</th>
                 <th>Departure Time</th>
@@ -32,6 +72,7 @@
             {% for row in data %}
             <tr>
                 <td>{{ row[0] }}</td>
+                <td><a href="#" onclick="showAircraftDetails('{{ row[6] }}')">{{ row[6] }}</a></td>
                 <td>{{ row[3] }}</td>
                 <td>{{ row[2] }}</td>
                 <td>{{ row[4] }}</td>
@@ -41,6 +82,18 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <div id="aircraftDetailsModal">
+        <div id="aircraftDetailsModalContent">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Aircraft Details</h2>
+            <p><strong>Aircraft ID:</strong> <span id="aircraftID"></span></p>
+            <p><strong>Airline Name:</strong> <span id="airlineName"></span></p>
+            <p><strong>Model ID:</strong> <span id="modelID"></span></p>
+            <p><strong>Manufactured Date:</strong> <span id="manufacturedDate"></span></p>
+        </div>
+    </div>
+
     <script>
         function refreshData() {
             fetch('/refresh')
@@ -52,6 +105,7 @@
                         const newRow = document.createElement('tr');
                         newRow.innerHTML = `
                             <td>${row[0]}</td>
+                            <td><a href="#" onclick="showAircraftDetails('${row[6]}')">${row[6]}</td>
                             <td>${row[3]}</td>
                             <td>${row[2]}</td>
                             <td>${row[4]}</td>
@@ -62,6 +116,27 @@
                     });
                 })
                 .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function showAircraftDetails(aircraftID) {
+            fetch(`/aircraft/${aircraftID}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('aircraftID').innerText = data.Aircraft_ID;
+                        document.getElementById('airlineName').innerText = data.Airline_Name;
+                        document.getElementById('modelID').innerText = data.Model_ID;
+                        document.getElementById('manufacturedDate').innerText = data.Manufactured_Date;
+                        document.getElementById('aircraftDetailsModal').style.display = 'block';
+                    } else {
+                        alert('Aircraft details not found.');
+                    }
+                })
+                .catch(error => console.error('Error fetching aircraft details:', error));
+        }
+
+        function closeModal() {
+            document.getElementById('aircraftDetailsModal').style.display = 'none';
         }
     </script>
 </body>
