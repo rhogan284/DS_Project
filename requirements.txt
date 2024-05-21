@@ -4,13 +4,8 @@ pandas==2.2.2
 Faker==25.2.0
 google-cloud-pubsub==2.21.1
 pyspark==3.5.1
-blinker==1.8.2
-click==8.1.7
 Flask==3.0.3
-itsdangerous==2.2.0
-Jinja2==3.1.4
 MarkupSafe==2.1.5
-Werkzeug==3.0.3
 mysql-connector-python==8.4.0
 matplotlib==3.9.0rc2
 seaborn==0.13.2
