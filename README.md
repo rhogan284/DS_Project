@@ -62,24 +62,8 @@ Required Python packages can be installed using the `requirements.txt` file.
       gcloud pubsub subscriptions create your-subscription-name --topic=your-topic-name
       ```
     - Fill in the relevant details in the dataflow run commands within the scripts, specifying the topic and subscription names.
-
-6. **Import fixed data to MySQL database**:
-   - Create a Cloud Storage Bucket: 
-      ```sh
-      gcloud storage buckets create gs://BUCKET_NAME --location=BUCKET_LOCATION
-      ```
-   - Upload each entity csv file to the bucket:
-      ```sh
-      gcloud storage cp ENTITY_LOCATION gs://DESTINATION_BUCKET_NAME
-      ```
-   - Import each csv file to the associated database table:
-      ```sh
-      gcloud sql import csv INSTANCE_NAME gs://BUCKET_NAME/FILE_NAME \
-      --database=DATABASE_NAME \
-      --table=TABLE_NAME
-      ```
      
-7. **Set up a Cloud MySQL Instance**:
+6. **Set up a Cloud MySQL Instance**:
     - Create a Cloud SQL instance:
       ```sh
       gcloud sql instances create your-instance-name --database-version=MYSQL_5_7 --tier=db-n1-standard-1 --region=your-region
@@ -99,6 +83,21 @@ Required Python packages can be installed using the `requirements.txt` file.
       ```
     - Fill in the relevant details in the config file, specifying the database connection details (instance name, database name, user, password).
 
+7. **Import fixed data to MySQL database**:
+   - Create a Cloud Storage Bucket: 
+      ```sh
+      gcloud storage buckets create gs://BUCKET_NAME --location=BUCKET_LOCATION
+      ```
+   - Upload each entity csv file to the bucket:
+      ```sh
+      gcloud storage cp ENTITY_LOCATION gs://DESTINATION_BUCKET_NAME
+      ```
+   - Import each csv file to the associated database table:
+      ```sh
+      gcloud sql import csv INSTANCE_NAME gs://BUCKET_NAME/FILE_NAME \
+      --database=DATABASE_NAME \
+      --table=TABLE_NAME
+      ```
 
 ## Usage
 
