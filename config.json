@@ -1,0 +1,8 @@
+{
+    "google_credentials": "path/to/google-credentials",
+    "jdbc_url": "jdbc:mysql://<IP Address>:<Port>/<Database>",
+    "db_username": "<Username>",
+    "db_password": "<Password>",
+    "flight_table_name": "Flight",
+    "ticket_table_name": "Ticket"
+}

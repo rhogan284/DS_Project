@@ -1,15 +1,9 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import mysql.connector
 import json
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import io
-import base64
 import os
 
-# Load configuration from the config file
-config_path = "../config.json"
+config_path = "../Other + Old Scripts/config.json"
 with open(config_path, 'r') as config_file:
     config = json.load(config_file)
 
@@ -184,117 +178,9 @@ def passenger_details(passport_number):
 def stats():
     if 'loggedin' not in session:
         return redirect(url_for('login'))
-
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-
-    # Fetch flight status distribution
-    query = f"""
-    SELECT Flight_Status, COUNT(*) as count
-    FROM {config['flight_table_name']}
-    GROUP BY Flight_Status
-    """
-    cursor.execute(query)
-    status_data = cursor.fetchall()
-
-    # Fetch data for arrivals and departures per hour
-    query = f"""
-        SELECT HOUR(Departure_Time) as Hour, COUNT(*) as Count, 'Departure' as Type
-        FROM {config['flight_table_name']}
-        GROUP BY HOUR(Departure_Time)
-        UNION
-        SELECT HOUR(Arrival_Time) as Hour, COUNT(*) as Count, 'Arrival' as Type
-        FROM {config['flight_table_name']}
-        GROUP BY HOUR(Arrival_Time)
-        """
-    cursor.execute(query)
-    hourly_data = cursor.fetchall()
-
-    # Fetch passengers per flight
-    query = f"""
-        SELECT Flight_ID, COUNT(*) as Count
-        FROM {config['ticket_table_name']}
-        GROUP BY Flight_ID
-        """
-    cursor.execute(query)
-    passengers_per_flight = cursor.fetchall()
-
-    # Fetch citizenship distribution (top 10)
-    query = f"""
-     SELECT Citizenship, COUNT(*) as Count
-     FROM {config['ticket_table_name']}
-     GROUP BY Citizenship
-     ORDER BY Count DESC
-     LIMIT 10
-     """
-    cursor.execute(query)
-    citizenship_data = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    # Create DataFrames from the fetched data
-    status_df = pd.DataFrame(status_data, columns=['Flight_Status', 'Count'])
-    hourly_df = pd.DataFrame(hourly_data, columns=['Hour', 'Count', 'Type'])
-    passengers_df = pd.DataFrame(passengers_per_flight, columns=['Flight_ID', 'Count'])
-    citizenship_df = pd.DataFrame(citizenship_data, columns=['Citizenship', 'Count'])
-
-    # Plot the flight status distribution
-    fig1, ax1 = plt.subplots()
-    sns.barplot(x='Flight_Status', y='Count', data=status_df, ax=ax1)
-    plt.title('Flight Status Distribution')
-    buf1 = io.BytesIO()
-    plt.savefig(buf1, format='png')
-    buf1.seek(0)
-    image_base64_1 = base64.b64encode(buf1.getvalue()).decode('utf-8')
-    buf1.close()
-
-    # Plot arrivals and departures per hour
-    fig2, ax2 = plt.subplots()
-    sns.lineplot(x='Hour', y='Count', hue='Type', data=hourly_df, ax=ax2)
-    plt.title('Arrivals and Departures per Hour')
-    plt.xlabel('Hour of the Day')
-    plt.ylabel('Number of Flights')
-    buf2 = io.BytesIO()
-    plt.savefig(buf2, format='png')
-    buf2.seek(0)
-    image_base64_2 = base64.b64encode(buf2.getvalue()).decode('utf-8')
-    buf2.close()
-
-    # Plot passengers per flight
-    fig3, ax3 = plt.subplots()
-    sns.barplot(x='Flight_ID', y='Count', data=passengers_df, ax=ax3)
-    plt.title('Passengers per Flight')
-    plt.xlabel('Flight ID')
-    plt.ylabel('Number of Passengers')
-    plt.xticks(rotation=90, ha='right', fontsize=8)
-    buf3 = io.BytesIO()
-    plt.savefig(buf3, format='png', bbox_inches='tight')
-    buf3.seek(0)
-    image_base64_3 = base64.b64encode(buf3.getvalue()).decode('utf-8')
-    buf3.close()
-
-    # Plot top 10 passenger citizenships
-    fig4, ax4 = plt.subplots()
-    sns.barplot(x='Citizenship', y='Count', data=citizenship_df, ax=ax4)
-    plt.title('Top 10 Passenger Citizenship Distribution')
-    plt.xlabel('Citizenship')
-    plt.ylabel('Number of Passengers')
-    plt.xticks(rotation=90, ha='right', fontsize=8)
-    buf4 = io.BytesIO()
-    plt.savefig(buf4, format='png', bbox_inches='tight')
-    buf4.seek(0)
-    image_base64_4 = base64.b64encode(buf4.getvalue()).decode('utf-8')
-    buf4.close()
-
-    return render_template('stats.html',
-                           image_base64_1=image_base64_1,
-                           image_base64_2=image_base64_2,
-                           image_base64_3=image_base64_3,
-                           image_base64_4=image_base64_4)
+    return render_template('stats.html')
 
 
-# Route to display the query form and results
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     if 'loggedin' not in session:

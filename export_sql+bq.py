@@ -7,7 +7,7 @@ from apache_beam.options.pipeline_options import PipelineOptions, GoogleCloudOpt
 from apache_beam.io import ReadFromPubSub, WriteToBigQuery, BigQueryDisposition
 from apache_beam.io.jdbc import WriteToJdbc
 
-with open('config.json', 'r') as config_file:
+with open('Other + Old Scripts/config.json', 'r') as config_file:
     config = json.load(config_file)
 
 logging.getLogger().setLevel(logging.INFO)

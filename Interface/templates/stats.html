@@ -25,24 +25,6 @@
         <button onclick="refreshStats()" style="float:right; margin-right:20px;">Refresh</button>
     </div>
     <br>
-<!--    <div class="grid-container">-->
-<!--        <div class="graph-container">-->
-<!--            <h2>Flight Status Distribution</h2>-->
-<!--            <img src="data:image/png;base64, {{ image_base64_1 }}" alt="Flight Status Distribution" class="graph">-->
-<!--        </div>-->
-<!--        <div class="graph-container">-->
-<!--            <h2>Arrivals and Departures per Hour</h2>-->
-<!--            <img src="data:image/png;base64, {{ image_base64_2 }}" alt="Data Import Over Time" class="graph">-->
-<!--        </div>-->
-<!--        <div class="graph-container">-->
-<!--            <h2>Passengers per Flight</h2>-->
-<!--            <img src="data:image/png;base64, {{ image_base64_3 }}" alt="Passengers per Flight" class="graph">-->
-<!--        </div>-->
-<!--        <div class="graph-container">-->
-<!--            <h2>Top 10 Passenger Citizenship Distribution</h2>-->
-<!--            <img src="data:image/png;base64, {{ image_base64_4 }}" alt="Passenger Citizenship Distribution" class="graph">-->
-<!--        </div>-->
-<!--    </div>-->
     <div class="center-iframe">
         <iframe width="1200" height="900" src="https://lookerstudio.google.com/embed/reporting/89ed629b-70c3-42b2-bdfc-04b44e98b136/page/DrY0D" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
@@ -55,7 +37,6 @@
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
 
-                    // Update each graph container with the new image
                     document.querySelectorAll('.graph-container img').forEach((img, index) => {
                         const newImg = doc.querySelectorAll('.graph-container img')[index];
                         img.src = newImg.src;

@@ -52,6 +52,37 @@ Required Python packages can be installed using the `requirements.txt` file.
     ```sh
     export GOOGLE_APPLICATION_CREDENTIALS="path/to/your/service-account-file.json"
     ```
+5. **Create a Google Cloud Pub/Sub Topic and Subscription**:
+    - Create a Pub/Sub topic:
+      ```sh
+      gcloud pubsub topics create your-topic-name
+      ```
+    - Create a Pub/Sub subscription:
+      ```sh
+      gcloud pubsub subscriptions create your-subscription-name --topic=your-topic-name
+      ```
+    - Fill in the relevant details in the dataflow run commands within the scripts, specifying the topic and subscription names.
+
+6. **Set up a Cloud MySQL Instance**:
+    - Create a Cloud SQL instance:
+      ```sh
+      gcloud sql instances create your-instance-name --database-version=MYSQL_5_7 --tier=db-n1-standard-1 --region=your-region
+      ```
+    - Set a password for the root user:
+      ```sh
+      gcloud sql users set-password root --host=% --instance=your-instance-name --password=your-password
+      ```
+    - Connect to your instance and create a database:
+      ```sh
+      gcloud sql connect your-instance-name --user=root
+      mysql> CREATE DATABASE your-database-name;
+      ```
+    - Run the SQL script found at `setup.sql` on the database to set up the necessary tables:
+      ```sh
+      mysql -u root -p your-database-name < setup.sql
+      ```
+    - Fill in the relevant details in the config file, specifying the database connection details (instance name, database name, user, password).
+
 
 ## Usage
 
@@ -73,3 +104,20 @@ For running the ETL pipeline targeting both SQL and BigQuery:
 ```sh
 python export_sql+bq.py
 ```
+
+### User Interface 
+
+The project includes a Flask application (home.py) that serves as a user interface for interacting with the database and Google Looker for reporting. The Flask app provides the following functionalities:
+
+- **User Authentication**: Users can log in with their credentials to access the application. 
+- **Flight Data Viewing**: Authenticated users can view flight data, including flight IDs, statuses, airports, and times. 
+- **Ticket Data Viewing**: Authenticated users can view ticket data associated with a flight, including the passenger details, seat number and flight ID. 
+- **Google Looker Integration**: The app connects to Google Looker for reporting and data visualization.
+
+To run the Flask app:
+
+```sh
+export FLASK_APP=home.py
+flask run
+```
+Navigate to http://127.0.0.1:8000/ in your web browser to access the application.
