@@ -62,7 +62,8 @@ Required Python packages can be installed using the `requirements.txt` file.
       gcloud pubsub subscriptions create your-subscription-name --topic=your-topic-name
       ```
     - Fill in the relevant details in the dataflow run commands within the scripts, specifying the topic and subscription names.
-     
+  
+   
 6. **Set up a Cloud MySQL Instance**:
     - Create a Cloud SQL instance:
       ```sh
@@ -82,6 +83,7 @@ Required Python packages can be installed using the `requirements.txt` file.
       mysql -u root -p your-database-name < setup.sql
       ```
     - Fill in the relevant details in the config file, specifying the database connection details (instance name, database name, user, password).
+
 
 7. **Import fixed data to MySQL database**:
    - Create a Cloud Storage Bucket: 
@@ -136,3 +138,18 @@ export FLASK_APP=home.py
 flask run
 ```
 Navigate to http://127.0.0.1:8000/ in your web browser to access the application.
+
+### Stop ETL Process
+
+To stop the ETL process complete the following steps in order:
+
+1. Stop `data_stream_v2.py` script
+2. Drain dataflow job:
+   ```sh
+   gcloud dataflow jobs drain JOB_ID
+   ```
+3. Purge remaining messages in Pub/Sub by seeking to a future time:
+   ```sh
+   gcloud pubsub subscriptions seek SUBSCRIPTION_ID \
+    --time=TIME \
+   ```
