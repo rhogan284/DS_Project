@@ -12,7 +12,7 @@ This repository contains a university project that defines a data generator and 
 - [Setup](#setup)
 - [Usage](#usage)
 - [User Interface](#user-interface)
-- [End ETL Process](#end-etl-process)
+- [Stop ETL Process](#stop-etl-process)
 
 ## Project Structure
 
