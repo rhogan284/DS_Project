@@ -126,7 +126,7 @@ For running the ETL pipeline targeting both SQL and BigQuery:
 python export_sql+bq.py
 ```
 
-### User Interface 
+### User Interface
 
 The project includes a Flask application (home.py) that serves as a user interface for interacting with the database and Google Looker for reporting. The Flask app provides the following functionalities:
 
