@@ -11,6 +11,8 @@ This repository contains a university project that defines a data generator and 
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
+- [User Interface](#user-interface)
+- [End ETL Process](#end-etl-process)
 
 ## Project Structure
 
@@ -21,6 +23,8 @@ The repository contains the following main files:
 - `export_sql+bq.py`: Script for exporting data to both Google Cloud MySQL and BigQuery.
 - `DF RUN WIN - SQL`: Script for running the ETL pipeline targeting SQL.
 - `DF RUN WIN - SQL + BQ`: Script for running the ETL pipeline targeting both SQL and BigQuery.
+- `home.py`: Flask application for interfacing with the database and Google Looker for reporting.
+
 
 ## Requirements
 
